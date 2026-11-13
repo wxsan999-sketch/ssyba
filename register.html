@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิก - SSyba</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 1) account.js = ระบบบัญชีผู้ใช้   2) common.js = ฟังก์ชันใช้ร่วมกัน   3) register.js = โค้ดของหน้านี้ -->
+  <script src="js/account.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</head>
+<body>
+
+  <!-- ================= ส่วนหัวเว็บ (Header) ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">SSyba</a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">เกมทั้งหมด</a>
+        <a href="library.html" class="nav-link">Library</a>
+      </nav>
+
+      <div id="header-buttons" class="header-buttons">
+        <a href="login.html" class="btn btn-outline">เข้าสู่ระบบ</a>
+        <a href="register.html" class="btn btn-primary">สมัครสมาชิก</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ฟอร์มสมัครสมาชิก ================= -->
+  <main class="page">
+    <section class="auth-box">
+      <h1 class="auth-title">สมัครสมาชิก</h1>
+
+      <!-- required / minlength / maxlength = ให้เบราว์เซอร์เช็คก่อนส่งฟอร์ม
+           (account.js เช็คซ้ำอีกรอบด้วย) -->
+      <form id="register-form" class="auth-form">
+        <label for="username">ชื่อผู้ใช้</label>
+        <input type="text" id="username" autocomplete="username" minlength="3" maxlength="30" required>
+
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" autocomplete="email" required>
+
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" id="password" autocomplete="new-password" minlength="6" required>
+        <p class="form-hint">อย่างน้อย 6 ตัวอักษร</p>
+
+        <label for="password-confirm">ยืนยันรหัสผ่าน</label>
+        <input type="password" id="password-confirm" autocomplete="new-password" minlength="6" required>
+
+        <!-- ข้อความแจ้งข้อผิดพลาด เช่น อีเมลนี้สมัครไว้แล้ว (register.js เป็นคนใส่) -->
+        <p id="form-error" class="form-error" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary btn-wide">สมัครสมาชิก</button>
+      </form>
+
+      <p class="auth-switch">มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+    </section>
+  </main>
+
+  <!-- ================= ส่วนท้ายเว็บ (Footer) ================= -->
+  <footer class="site-footer">
+    <p>© 2026 SSyba · โปรเจควิชา Web Programming</p>
+  </footer>
+
+</body>
+</html>

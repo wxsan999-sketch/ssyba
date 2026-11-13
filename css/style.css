@@ -1,0 +1,532 @@
+/* =====================================================================
+   style.css — การตกแต่งหน้าเว็บ "SSyba"
+
+   อ่านจากบนลงล่างตามลำดับนี้:
+     1) ค่าพื้นฐาน (สี, ฟอนต์)
+     2) ส่วนหัวเว็บ (Header)
+     3) เนื้อหาหลักของหน้า
+     4) ตารางการ์ดเกม (Grid)
+     5) การ์ดเกม: ปกเกม
+     6) การ์ดเกม: รายละเอียดใต้ปก (และปุ่มให้ดาว)
+     7) ฟอร์มเข้าสู่ระบบ / สมัครสมาชิก
+     8) ส่วนท้ายเว็บ (Footer)
+     9) Responsive (ปรับตามขนาดจอ)
+
+   หน่วย rem: 1rem = 16px (สไลด์ Week 4: ใช้ rem เพื่อให้ขยายตามขนาดตัวอักษรที่ผู้ใช้ตั้งไว้)
+   ===================================================================== */
+
+
+/* ---------- 1) ค่าพื้นฐาน ---------- */
+
+/* ตัวแปรสี: เปลี่ยนสีที่นี่ที่เดียว → เปลี่ยนทั้งเว็บ */
+:root {
+  --color-accent: #dc2f3c;      /* สีหลัก (ปุ่ม, ดาว, เส้นใต้เมนู) — เข้มพอให้ตัวหนังสือสีขาวอ่านชัด */
+  --color-text: #1f1f24;        /* สีตัวหนังสือหลัก */
+  --color-muted: #6b6b76;       /* สีตัวหนังสือรอง (คำอธิบาย, ผู้สร้าง) */
+  --color-line: #e6e6eb;        /* สีเส้นแบ่ง */
+  --color-bg: #ffffff;          /* สีพื้นหลังหน้าเว็บ */
+  --color-badge: #ececf0;       /* สีพื้นป้ายเล็ก ๆ */
+}
+
+/* ให้ width/height รวม padding และ border ไว้ด้วย คำนวณขนาดง่ายขึ้น (Box model — Week 3) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Prompt", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ---------- 2) ส่วนหัวเว็บ (Header) ---------- */
+
+.site-header {
+  position: sticky;   /* ติดอยู่ด้านบนตลอดเวลาเลื่อนหน้า (คล้าย position: fixed) */
+  top: 0;
+  z-index: 10;        /* ให้อยู่ทับการ์ดเกมเวลาเลื่อน */
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header-inner {
+  max-width: 90rem;
+  margin: 0 auto;            /* จัดกล่องให้อยู่กลางจอ (Week 3: auto margins) */
+  padding: 0.75rem 1rem;
+  display: flex;             /* เรียงโลโก้ เมนู ปุ่ม เป็นแถวเดียว (Week 3: Flexbox) */
+  flex-wrap: wrap;           /* จอแคบ → ขึ้นบรรทัดใหม่ได้ */
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-link {
+  color: var(--color-muted);
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;   /* เปลี่ยนสีแบบนุ่มนวล (Week 3: Transitions) */
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;   /* ดันปุ่มไปชิดขวาสุด */
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 1px solid transparent;   /* ขอบใส ให้ปุ่มทุกแบบสูงเท่ากัน */
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;            /* <button> ไม่ใช้ฟอนต์ของหน้าเว็บเอง ต้องสั่ง */
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, background-color 0.2s;
+}
+
+/* ชื่อผู้ใช้ที่มุมขวาบน (ตอนล็อกอินอยู่) */
+.user-name {
+  align-self: center;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn-outline {
+  border: 1px solid var(--color-line);
+}
+
+/* ชี้เมาส์ = ปุ่มลอยขึ้น, กดค้าง = ปุ่มยุบลง (Week 3: :hover / :active) */
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+
+/* ---------- 3) เนื้อหาหลักของหน้า ---------- */
+
+.page {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* หัวข้อของหน้า เช่น "Library ของฉัน" */
+.page-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* ข้อความตอนที่ยังไม่มีเกม และตอนที่ปิด JavaScript */
+.empty-message,
+.no-js {
+  grid-column: 1 / -1;   /* กินพื้นที่เต็มแถวของ Grid */
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+
+/* ---------- 4) ตารางการ์ดเกม (Grid) ---------- */
+
+.game-grid {
+  display: grid;   /* Week 4: CSS Grid */
+  /* ใส่การ์ดให้เต็มแถว แต่ละใบกว้างอย่างน้อย 13rem
+     จอกว้างได้หลายคอลัมน์ จอแคบเหลือน้อยคอลัมน์ — ไม่ต้องเขียน media query เอง
+     (Week 4: repeat + auto-fill + minmax) */
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 2rem 1.25rem;   /* ระยะห่าง: แนวตั้ง 2rem, แนวนอน 1.25rem */
+}
+
+
+/* ---------- 5) การ์ดเกม: ปกเกม ---------- */
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;   /* ให้ข้อความยาว ๆ ตัดเป็น ... ได้ ไม่ดันการ์ดให้กว้างเกิน */
+}
+
+.game-cover {
+  position: relative;        /* ให้ปุ่ม "เก็บลง Library" วางตำแหน่งเทียบกับปกนี้ (Week 3: position) */
+  aspect-ratio: 5 / 4;       /* สัดส่วนปก กว้าง 5 : สูง 4 */
+  border-radius: 0.5rem;
+  overflow: hidden;          /* ส่วนที่ล้นออกนอกปก ให้ซ่อนไว้ */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* จัดไอคอนกับชื่อเกมให้อยู่กลางปก */
+  justify-content: center;
+  gap: 0.25rem;
+  /* สีพื้นหลังของปกถูกกำหนดใน cards.js (แต่ละเกมสีไม่เหมือนกัน) */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* ลายจุดจาง ๆ ทับบนปก ให้ดูมีพื้นผิว */
+.game-cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+/* ชี้เมาส์ที่การ์ด → ปกลอยขึ้นและมีเงาเข้มขึ้น (Week 3: translateY + box-shadow) */
+.game-card:hover .game-cover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.cover-icon {
+  position: relative;   /* ให้อยู่เหนือลายจุด */
+  font-size: 3.5rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));   /* เงารอบอีโมจิ (Week 3: drop-shadow) */
+  transition: transform 0.3s;
+}
+
+/* ชี้เมาส์ → ไอคอนขยายและเอียงนิดหน่อย (Week 3: scale + rotate) */
+.game-card:hover .cover-icon {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+.cover-title {
+  position: relative;
+  padding: 0 0.75rem;
+  font-family: "Lilita One", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);   /* เงาตัวหนังสือ (Week 3: text-shadow) */
+  transform: rotate(-3deg);                   /* เอียงชื่อเกมให้ดูสนุก */
+}
+
+/* ปุ่ม "เก็บลง Library" ที่มุมขวาบนของปก */
+.library-btn {
+  position: absolute;   /* วางตำแหน่งเทียบกับ .game-cover */
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 0.35rem;
+  background-color: rgba(20, 20, 24, 0.75);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;           /* ปกติซ่อนไว้ */
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+/* โชว์ปุ่มเมื่อเอาเมาส์ชี้ที่การ์ด หรือกด Tab มาถึงปุ่ม */
+.game-card:hover .library-btn,
+.library-btn:focus {
+  opacity: 1;
+}
+
+.library-btn:active {
+  transform: scale(0.95);
+}
+
+/* เกมที่เก็บไว้แล้ว: ปุ่มเป็นสีแดงและโชว์ค้างไว้ตลอด */
+.library-btn.saved {
+  opacity: 1;
+  background-color: var(--color-accent);
+}
+
+
+/* ---------- 6) การ์ดเกม: รายละเอียดใต้ปก ---------- */
+
+.game-info {
+  padding-top: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.game-info p {
+  margin: 0.1rem 0;
+}
+
+.game-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.game-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  /* ชื่อยาวเกินบรรทัด → ตัดเป็น ... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price-badge {
+  flex-shrink: 0;   /* ไม่ให้ป้ายราคาโดนบีบ */
+  padding: 0 0.4rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-badge);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+/* เกมเสียเงิน: ป้ายราคาสีเข้ม */
+.price-badge.paid {
+  background-color: #3a3a44;
+  color: #ffffff;
+}
+
+.game-desc {
+  color: var(--color-muted);
+  /* คำอธิบายยาวเกินบรรทัด → ตัดเป็น ... (เหมือนในเว็บรวมเกมทั่วไป) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-author {
+  color: var(--color-muted);
+}
+
+.stars {
+  color: var(--color-accent);
+  letter-spacing: 1px;
+}
+
+.rating-count,
+.game-genre {
+  color: var(--color-muted);
+}
+
+/* เกมที่เล่นได้: ชี้ที่ปกแล้วเมาส์เป็นรูปมือ (กดที่ปกเพื่อเข้าเกม) */
+.game-card.playable .game-cover {
+  cursor: pointer;
+}
+
+/* ปุ่ม "เล่นเลย" ใต้รายละเอียดเกม */
+.play-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 0.35rem;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-weight: 600;
+  transition: transform 0.1s, filter 0.2s;
+}
+
+.play-link:hover {
+  filter: brightness(1.1);
+}
+
+.play-link:active {
+  transform: scale(0.95);
+}
+
+/* แถว "ให้ดาว ★★★★★" — ปุ่มดาวของเรา */
+.my-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.my-rating-label {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.star-btn {
+  padding: 0 0.1rem;
+  border: none;
+  background: none;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #a0a0aa;       /* ดาวที่ยังไม่ได้ให้: สีเทา */
+  cursor: pointer;
+  transition: transform 0.1s, color 0.15s;
+}
+
+/* ดาวที่เราให้ไว้แล้ว: สีแดง */
+.star-btn.on {
+  color: var(--color-accent);
+}
+
+/* ชี้เมาส์ที่ดาวดวงไหน → ดวงนั้นและดวงก่อนหน้าเป็นสีแดง ดวงหลังจากนั้นเป็นสีเทา
+   ขั้นที่ 1: ชี้ในกลุ่มดาว → ทุกดวงเป็นสีแดง
+   ขั้นที่ 2: ดวงที่อยู่ "ถัดจาก" ดวงที่ชี้ (เครื่องหมาย ~) → กลับเป็นสีเทา */
+.star-group:hover .star-btn {
+  color: var(--color-accent);
+}
+
+.star-group .star-btn:hover ~ .star-btn {
+  color: #a0a0aa;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+}
+
+.star-btn:active {
+  transform: scale(0.9);
+}
+
+
+/* ---------- 7) ฟอร์มเข้าสู่ระบบ / สมัครสมาชิก ---------- */
+
+/* กล่องฟอร์มตรงกลางจอ */
+.auth-box {
+  max-width: 24rem;
+  margin: 1rem auto;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+}
+
+.auth-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* เรียงช่องกรอกจากบนลงล่าง (Week 3: Flexbox แนวตั้ง) */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.auth-form label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.auth-form input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ช่องที่กำลังพิมพ์อยู่: ขอบสีแดง (Week 3: :focus) */
+.auth-form input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+}
+
+/* คำแนะนำใต้ช่องกรอก เช่น "อย่างน้อย 6 ตัวอักษร" */
+.form-hint {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+/* ข้อความแจ้งข้อผิดพลาด เช่น "รหัสผ่านไม่ถูกต้อง" */
+.form-error {
+  margin: 0.5rem 0 0;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+/* ข้อความอธิบายด้านบนฟอร์ม เช่น "เข้าสู่ระบบก่อน เพื่อเก็บเกมลง Library" */
+.form-note {
+  margin: 0 0 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-badge);
+  font-size: 0.9rem;
+}
+
+/* ยังไม่มีข้อความ (กล่องว่าง) → ซ่อนไว้ ไม่ให้กินที่ */
+.form-error:empty,
+.form-note:empty {
+  display: none;
+}
+
+/* ปุ่มยาวเต็มความกว้างของฟอร์ม */
+.btn-wide {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem;
+  font-size: 1rem;
+}
+
+/* ลิงก์สลับไปหน้าสมัครสมาชิก / หน้าเข้าสู่ระบบ */
+.auth-switch {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.auth-switch a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+
+/* ---------- 8) ส่วนท้ายเว็บ (Footer) ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-line);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+
+/* ---------- 9) Responsive (Week 4: Media Query แบบ Mobile-First) ---------- */
+
+/* จอกว้างตั้งแต่ 48rem (768px) ขึ้นไป เช่น แท็บเล็ต/คอมพิวเตอร์ → เว้นขอบมากขึ้น */
+@media (min-width: 48rem) {
+  .page {
+    padding: 2rem 1.5rem 4rem;
+  }
+}
+
+/* จอสัมผัส (มือถือ/แท็บเล็ต) ไม่มีการ "ชี้เมาส์" → โชว์ปุ่มเก็บลง Library ไว้ตลอด */
+@media (hover: none) {
+  .library-btn {
+    opacity: 1;
+  }
+}

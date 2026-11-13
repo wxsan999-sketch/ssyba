@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "game-showcase",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5600", "--bind", "127.0.0.1"],
+      "port": 5600,
+      "autoPort": false
+    }
+  ]
+}

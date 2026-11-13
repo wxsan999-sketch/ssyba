@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submarine vs Fish</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="unity-canvas" width="1280" height="720" tabindex="-1"></canvas>
+
+      <div id="overlay">
+        <h1 id="title"><span class="sub">Submarine</span> vs <span class="fish">Fish</span></h1>
+        <div id="progress"><div id="progress-fill"></div></div>
+        <div id="status">Loading the ocean…</div>
+        <button id="start" type="button">Click to dive in</button>
+
+        <div id="controls">
+          <section class="player sub">
+            <h2><span class="icon" style="--src: url(icon_sub.png)"></span>Submarine <span class="who">Player 1</span></h2>
+            <ul>
+              <li><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>Move</li>
+              <li><span class="keys"><kbd>Left Shift</kbd></span>Boost</li>
+              <li><span class="keys"><kbd>Space</kbd></span>Catch a fish</li>
+            </ul>
+          </section>
+          <section class="player fish">
+            <h2><span class="icon" style="--src: url(icon_fish.png)"></span>Fish <span class="who">Player 2</span></h2>
+            <ul>
+              <li><span class="keys"><kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&rarr;</kbd></span>Swim</li>
+              <li><span class="keys"><kbd>Right Shift</kbd></span>Sprint, break free</li>
+              <li><span class="keys"><kbd>Enter</kbd></span>Use your skill</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <div id="toolbar">
+        <button id="fullscreen" type="button" title="Full screen" aria-label="Full screen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      var overlay = document.querySelector("#overlay");
+      var statusLine = document.querySelector("#status");
+      var progressFill = document.querySelector("#progress-fill");
+      var startButton = document.querySelector("#start");
+
+      function setStatus(text, isError) {
+        statusLine.textContent = text;
+        statusLine.classList.toggle("error", !!isError);
+      }
+
+      // Messages from the engine (e.g. browser warnings) go in the status line instead of a popup.
+      function unityShowBanner(msg, type) {
+        if (type === "error") setStatus(msg, true);
+        else console.warn(msg);
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/web.loader.js";
+      var config = {
+        arguments: [],
+        dataUrl: buildUrl + "/web.data.unityweb",
+        frameworkUrl: buildUrl + "/web.framework.js.unityweb",
+        codeUrl: buildUrl + "/web.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "sea",
+        productVersion: "0.1.0",
+        showBanner: unityShowBanner,
+        // A sharp-enough picture without rendering 4x the pixels on high-DPI screens.
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 1.5),
+      };
+
+      // Two players share one keyboard: keep arrows / Space from scrolling the page.
+      window.addEventListener("keydown", function (e) {
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].indexOf(e.key) >= 0) e.preventDefault();
+      }, { passive: false });
+
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) setStatus("This game needs a keyboard for two players. Best on a computer.");
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onerror = function () { setStatus("Could not load the game files. Open this page through a web server (see README).", true); };
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (progress) {
+          progressFill.style.width = Math.round(100 * progress) + "%";
+          if (!isMobile) setStatus("Loading the ocean… " + Math.round(100 * progress) + "%");
+        }).then(function (unityInstance) {
+          // Browsers only allow sound after a click or key press, so wait for one.
+          document.querySelector("#progress").style.display = "none";
+          setStatus(isMobile ? "This game needs a keyboard for two players." : "Ready!");
+          startButton.style.display = "inline-block";
+          startButton.focus();
+
+          startButton.addEventListener("click", function () {
+            overlay.classList.add("hidden");
+            document.querySelector("#toolbar").style.display = "block";
+            canvas.focus();
+          });
+
+          document.querySelector("#fullscreen").addEventListener("click", function () {
+            unityInstance.SetFullscreen(1);
+            canvas.focus();
+          });
+          // Clicking anywhere on the game gives it the keyboard back.
+          canvas.addEventListener("pointerdown", function () { canvas.focus(); });
+        }).catch(function (message) {
+          setStatus("The game could not start: " + message, true);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+# ไฟล์เกม Unity เป็นไฟล์ binary ห้าม git แปลงบรรทัด (CRLF) ไม่งั้นเกมพัง
+*.unityweb binary
+*.wasm binary
+*.data binary
+*.png binary
+*.jpg binary
+*.ttf binary

@@ -1,0 +1,7 @@
+# แคชของเครื่องมือออกแบบ (มี path ในเครื่อง ไม่เกี่ยวกับตัวเว็บ)
+.impeccable/
+
+# ไฟล์ระบบ
+Thumbs.db
+desktop.ini
+.DS_Store

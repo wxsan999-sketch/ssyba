@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library ของฉัน - SSyba</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- External JavaScript (ลำดับสำคัญ! ไฟล์หลังใช้ของจากไฟล์ก่อนหน้า)
+       1) games-data.js = ข้อมูลเกม (ตัวแปร GAMES)
+       2) account.js    = ระบบบัญชีผู้ใช้ / Library / ดาว
+       3) common.js     = ฟังก์ชันใช้ร่วมกันทุกหน้า
+       4) cards.js      = สร้างการ์ดเกม
+       5) library.js    = โค้ดของหน้านี้ -->
+  <script src="js/games-data.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/library.js"></script>
+</head>
+<body>
+
+  <!-- ================= ส่วนหัวเว็บ (Header) ================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">SSyba</a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">เกมทั้งหมด</a>
+        <a href="library.html" class="nav-link active">Library</a>
+      </nav>
+
+      <div id="header-buttons" class="header-buttons">
+        <a href="login.html" class="btn btn-outline">เข้าสู่ระบบ</a>
+        <a href="register.html" class="btn btn-primary">สมัครสมาชิก</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= เนื้อหาหลัก (Content) ================= -->
+  <main class="page">
+    <h1 class="page-title">Library ของฉัน</h1>
+
+    <!-- กล่องว่างสำหรับใส่การ์ดเกม → js/library.js จะใส่เฉพาะเกมที่เก็บไว้ -->
+    <section id="game-grid" class="game-grid"></section>
+
+    <noscript>
+      <p class="no-js">กรุณาเปิด JavaScript เพื่อดูรายการเกม</p>
+    </noscript>
+  </main>
+
+  <!-- ================= ส่วนท้ายเว็บ (Footer) ================= -->
+  <footer class="site-footer">
+    <p>© 2026 SSyba · โปรเจควิชา Web Programming</p>
+  </footer>
+
+</body>
+</html>
