@@ -48,5 +48,17 @@ const GAMES = [
     color1: "#38bdf8",
     color2: "#0b2545",
     url: "games/submarine-vs-fish/index.html"   // เกมที่ build จาก Unity (WebGL)
+  },
+  {
+    id: 2,
+    title: "We Become What We Behold",
+    description: "เกมสั้น ๆ ที่เราเป็นตากล้องข่าว ถ่ายรูปผู้คนในเมือง แล้วดูว่าข่าวที่เลือกนำเสนอทำให้ผู้คนเปลี่ยนไปอย่างไร",
+    author: "Nicky Case",
+    price: 0,
+    genre: "Simulation · เกมสั้น",
+    icon: "📷",
+    color1: "#fda4af",
+    color2: "#475569",
+    url: "https://ncase.itch.io/wbwwb"   // เกมอยู่บน itch.io กด "Run game" ในหน้านั้นเพื่อเล่น
   }
 ];
