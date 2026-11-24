@@ -10,7 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- 1) account.js = ระบบบัญชีผู้ใช้   2) common.js = ฟังก์ชันใช้ร่วมกัน   3) register.js = โค้ดของหน้านี้ -->
+  <!-- ลำดับสำคัญ: 1) supabase.js (CDN)  2) supabase-config.js  3) account.js = ระบบบัญชีผู้ใช้
+                   4) common.js = ฟังก์ชันใช้ร่วมกัน  5) register.js = โค้ดของหน้านี้ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/account.js"></script>
   <script src="js/common.js"></script>
   <script src="js/register.js"></script>
@@ -39,6 +42,9 @@
     <section class="auth-box">
       <h1 class="auth-title">สมัครสมาชิก</h1>
 
+      <!-- ข้อความแจ้ง เช่น "สมัครสำเร็จ! เปิดอีเมลแล้วกดลิงก์ยืนยัน" (register.js เป็นคนใส่) -->
+      <p id="form-note" class="form-note"></p>
+
       <!-- required / minlength / maxlength = ให้เบราว์เซอร์เช็คก่อนส่งฟอร์ม
            (account.js เช็คซ้ำอีกรอบด้วย) -->
       <form id="register-form" class="auth-form">
@@ -58,7 +64,7 @@
         <!-- ข้อความแจ้งข้อผิดพลาด เช่น อีเมลนี้สมัครไว้แล้ว (register.js เป็นคนใส่) -->
         <p id="form-error" class="form-error" role="alert"></p>
 
-        <button type="submit" class="btn btn-primary btn-wide">สมัครสมาชิก</button>
+        <button type="submit" id="register-button" class="btn btn-primary btn-wide">สมัครสมาชิก</button>
       </form>
 
       <p class="auth-switch">มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>

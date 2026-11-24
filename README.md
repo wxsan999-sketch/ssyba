@@ -1,13 +1,11 @@
-# SSyba — เว็บรวมเกม (ขั้นที่ 2: สมาชิก, Library, ให้ดาว)
+# SSyba — เว็บรวมเกม (ขั้นที่ 3: สมาชิก, Library, ให้ดาว เก็บใน Supabase)
 
 หน้าเว็บแสดงการ์ดเกมเป็นตาราง คล้ายหน้ารวมเกมของเว็บขายเกมอินดี้
 สมัครสมาชิก / เข้าสู่ระบบ แล้วเก็บเกมที่ชอบลง **Library** และ **ให้ดาว** เกมได้
 เพิ่มเกมได้ที่ `js/games-data.js` (มีตัวอย่างให้คัดลอกในไฟล์)
 
-ตอนนี้มีเกม 2 เกม (กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น):
-
-- **Submarine vs Fish** — เกม Unity ที่ build เป็นเว็บ อยู่ในโฟลเดอร์ `games/submarine-vs-fish/`
-- **We Become What We Behold** โดย Nicky Case — ลิงก์ไปเล่นที่หน้า itch.io ของผู้สร้าง (https://ncase.itch.io/wbwwb) ต้องต่อเน็ต
+ตอนนี้มีเกม 1 เกม: **Submarine vs Fish** (เกม Unity ที่ build เป็นเว็บ) อยู่ในโฟลเดอร์ `games/submarine-vs-fish/`
+กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น
 
 ## เว็บออนไลน์
 
@@ -59,6 +57,7 @@ git push
 - ไฟล์ละห้ามเกิน 100 MB และทั้ง repo รวมกันไม่ควรเกิน 1 GB
 - เกม Unity ที่ใหญ่ ให้แยกไปไว้ repo ของตัวเอง หรือขึ้น itch.io แล้วใส่ลิงก์ใน `js/games-data.js`
 - ห้ามใส่รหัสผ่าน, API key หรือข้อมูลส่วนตัวในไฟล์ เพราะ repo นี้เปิดให้ทุกคนเห็น
+  (ยกเว้น Publishable key ของ Supabase ใน `js/supabase-config.js` ซึ่งเปิดเผยได้ ดูหัวข้อ "เรื่อง key")
 
 ## วิธีเปิดในเครื่อง
 
@@ -66,16 +65,47 @@ git push
 - ดับเบิลคลิก `index.html` ก็เปิดหน้ารวมเกมได้ แต่ **จะเข้าเล่นเกม Unity ไม่ได้**
   เพราะเบราว์เซอร์ไม่ยอมให้หน้าที่เปิดจากไฟล์ในเครื่อง (`file://`) โหลดไฟล์เกมขนาดใหญ่ ต้องเปิดผ่านเว็บเซิร์ฟเวอร์อย่าง Live Server
 
-## ระบบสมาชิกตอนนี้ (ยังไม่มีฐานข้อมูล)
+## ฐานข้อมูล (Supabase)
 
-ข้อมูลสมาชิก, Library และดาว เก็บไว้ใน **localStorage ของเบราว์เซอร์** ชั่วคราว (โค้ดอยู่ใน `js/account.js` ไฟล์เดียว)
+ข้อมูลสมาชิก, Library และดาว เก็บในฐานข้อมูล **Supabase** (PostgreSQL บนคลาวด์)
+ทุกคนที่เข้าเว็บเห็นข้อมูลชุดเดียวกัน ไม่ว่าจะเปิดจากเครื่องไหน
 
-- ข้อมูลอยู่แค่ในเบราว์เซอร์เครื่องนี้ เปิดจากเครื่องอื่นหรือเบราว์เซอร์อื่นจะไม่เห็น
-- คะแนนเฉลี่ยของเกม = เฉลี่ยจากทุกบัญชีที่สมัครไว้ในเบราว์เซอร์นี้
-- ไม่เก็บรหัสผ่านจริง เก็บเป็นรหัส SHA-256 ที่ถอดกลับไม่ได้
-- ล้างข้อมูลทั้งหมด: กด F12 → แท็บ **Application** → **Local Storage** → ลบ key ที่ขึ้นต้นด้วย `ssyba-`
+| เก็บอะไร | อยู่ที่ไหนใน Supabase |
+|---|---|
+| อีเมล, รหัสผ่าน | **Authentication → Users** (Supabase เข้ารหัสรหัสผ่านให้เอง คนอื่นดูอีเมลผ่านเว็บไม่ได้) |
+| ข้อมูลผู้ใช้ (ชื่อผู้ใช้, วันที่สมัคร) | **Table Editor → profiles** (สร้างแถวให้อัตโนมัติตอนสมัคร ด้วย trigger) |
+| เกมใน Library | **Table Editor → library** |
+| ชื่อเกม (id + ชื่อ ไว้ให้ตารางสรุปโชว์ชื่อ) | **Table Editor → games** |
+| **สรุป:** ผู้ใช้แต่ละคนมีเกมไหนใน Library | **Table Editor → profiles_library** (View) |
+| **สรุป:** แต่ละเกม ใครให้กี่ดาว, ดาวรวม, ค่าเฉลี่ย | **Table Editor → game_ratings** (View) |
+| ดาวที่ให้แต่ละเกม | **Table Editor → ratings** |
 
-ยังไม่ปลอดภัยพอสำหรับเว็บจริง ใครเปิด DevTools ก็แก้ข้อมูลได้ ขั้นต่อไปต้องย้ายไปเก็บในฐานข้อมูลบน server
+View คือตารางสรุปที่คำนวณจากตารางอื่นทุกครั้งที่เปิดดู ไม่ต้องอัปเดตเอง และดูได้ใน Dashboard เท่านั้น (หน้าเว็บอ่านไม่ได้)
+
+**เพิ่มเกมใหม่:** ใส่ใน `js/games-data.js` แล้วเพิ่มแถวในตาราง **games** ด้วย (id ต้องตรงกัน)
+ถ้าลืมเพิ่มในตาราง games เว็บยังใช้ได้ปกติ แค่ตารางสรุปจะโชว์เป็น "เกม #id" แทนชื่อ
+
+โค้ดที่คุยกับ Supabase อยู่ใน `js/account.js` ไฟล์เดียว
+หน้าเว็บคุยกับ Supabase ตรง ๆ ด้วย supabase-js (ไม่ต้องมี server ของเราเอง จึงยังโฮสต์บน GitHub Pages ได้)
+
+### ตั้งค่าครั้งแรก (ทำครั้งเดียว)
+
+1. **สร้างตาราง:** Supabase Dashboard → **SQL Editor** → New query → คัดลอกไฟล์ `supabase/schema.sql` ทั้งหมดไปวาง → กด **Run**
+   (แก้ไฟล์นี้เมื่อไร ก็รันทั้งไฟล์ซ้ำได้ ข้อมูลเดิมไม่หาย)
+2. **ใส่ key:** Dashboard → **Project Settings → API Keys** → คัดลอก **Publishable key** (ขึ้นต้นด้วย `sb_publishable_`)
+   ไปใส่ใน `js/supabase-config.js`
+3. **การยืนยันอีเมล** (Authentication → Sign In / Providers → Email → **Confirm email**):
+   - ปิด → สมัครแล้วล็อกอินได้ทันที (สะดวกตอนพัฒนา/ทดสอบ)
+   - เปิด → ต้องกดลิงก์ในอีเมลก่อน และต้องตั้ง **Authentication → URL Configuration → Site URL**
+     เป็น `https://wxsan999-sketch.github.io/ssyba/` ไม่งั้นลิงก์ในอีเมลจะพาไปผิดที่
+     (อีเมลของ Supabase แบบฟรีส่งได้ไม่กี่ฉบับต่อชั่วโมง)
+
+### เรื่อง key
+
+- **Publishable key** ใส่ในหน้าเว็บและขึ้น GitHub ได้ ออกแบบมาให้คนอื่นเห็นได้
+  ความปลอดภัยอยู่ที่กฎ Row Level Security ใน `supabase/schema.sql`
+  (เช่น ดู/แก้ Library ได้เฉพาะของตัวเอง, ให้ดาวได้เฉพาะในชื่อตัวเอง)
+- **Secret key / service_role ห้ามใส่ในไฟล์ไหนเด็ดขาด** key นี้ข้ามกฎทุกข้อได้
 
 ## อัปเดตเกม Submarine vs Fish
 
@@ -92,7 +122,9 @@ build ใหม่ใน Unity (เมนู **Build > Web Build**) แล้ว
 | `register.html` | หน้าสมัครสมาชิก |
 | `css/style.css` | การตกแต่งทั้งหมด (สี, Grid, ฟอร์ม, เอฟเฟกต์ตอนชี้เมาส์, Responsive) |
 | `js/games-data.js` | ข้อมูลเกม (Array ของ Object) — **เพิ่ม/แก้เกมที่ไฟล์นี้** |
-| `js/account.js` | ระบบบัญชีผู้ใช้: สมัคร, เข้าสู่ระบบ, ออกจากระบบ, Library, ดาว (เก็บใน localStorage) |
+| `js/supabase-config.js` | ที่อยู่และ Publishable key ของฐานข้อมูล Supabase |
+| `js/account.js` | ระบบบัญชีผู้ใช้: สมัคร, เข้าสู่ระบบ, ออกจากระบบ, Library, ดาว (คุยกับ Supabase) |
+| `supabase/schema.sql` | คำสั่ง SQL สร้างตาราง `profiles`, `library`, `ratings`, `games`, ตารางสรุป `profiles_library` / `game_ratings`, trigger สร้างโปรไฟล์ และกฎความปลอดภัย (รันใน Supabase SQL Editor) |
 | `js/common.js` | ฟังก์ชันใช้ร่วมกันทุกหน้า: สร้าง element, โชว์ชื่อผู้ใช้ที่ส่วนหัว |
 | `js/cards.js` | สร้างการ์ดเกม และจัดการปุ่มบนการ์ด (Library, ให้ดาว, เล่นเกม) |
 | `js/main.js` | โค้ดของหน้าแรก |
@@ -115,7 +147,9 @@ build ใหม่ใน Unity (เมนู **Build > Web Build**) แล้ว
 8. ออกจากระบบ แล้วสมัครอีกบัญชี ให้ดาวเกมเดียวกัน → คะแนนเฉลี่ยคิดจากทั้งสองบัญชี
 9. ออกจากระบบ → เข้าสู่ระบบด้วยบัญชีเดิม → Library และดาวของบัญชีนั้นยังอยู่ (ใส่รหัสผิด → ขึ้น "อีเมลหรือรหัสผ่านไม่ถูกต้อง")
 10. กด F5 รีเฟรช → ยังล็อกอินอยู่ ข้อมูลไม่หาย
-11. ย่อหน้าต่างให้แคบ → จำนวนคอลัมน์ลดลงเอง จอมือถือเหลือ 1 คอลัมน์
+11. เปิดเว็บจากอีกเครื่อง/อีกเบราว์เซอร์ แล้วล็อกอินบัญชีเดิม → เห็น Library และดาวเหมือนกัน
+12. เปิด Supabase Dashboard → Table Editor → `profiles` มีแถวของคนที่สมัคร และ `library` / `ratings` มีแถวตามที่กด
+13. ย่อหน้าต่างให้แคบ → จำนวนคอลัมน์ลดลงเอง จอมือถือเหลือ 1 คอลัมน์
 
 ## เนื้อหาที่ใช้จากสไลด์
 
@@ -126,13 +160,14 @@ build ใหม่ใน Unity (เมนู **Build > Web Build**) แล้ว
 | Week 5 | ตัวแปร `let`/`const`, `if`/`else`, ฟังก์ชัน, `window.onload`, `getElementById`, ฟอร์มและ event `submit` |
 | Week 6 | Array ของ Object (ข้อมูลเกม), `for...of`, `Math.round`, `push`/`unshift`/`splice`/`indexOf`, localStorage |
 | Week 7 | `createElement`, `appendChild`, `textContent`, `classList`, `dataset`, style object, Event Delegation (`event.target`) |
-| Week 8 | `JSON.stringify` / `JSON.parse`, `async` / `await` (ตอนเข้ารหัสรหัสผ่าน) |
+| Week 8 | `async` / `await` รอข้อมูลจากฐานข้อมูล, ข้อมูล JSON ที่ได้กลับมาจาก Supabase |
+| Week 11 | ตารางฐานข้อมูล: `CREATE TABLE`, `PRIMARY KEY`, `FOREIGN KEY` (`references`), `INSERT` / `SELECT` / `UPDATE` / `DELETE` (ใน `account.js` มีคอมเมนต์ SQL ที่เทียบเท่ากำกับไว้) |
+| Week 12 | การจำการล็อกอิน (Supabase เก็บ session ไว้ในเบราว์เซอร์ให้) |
 
 ## ขั้นต่อไป
 
-1. ทำ server ด้วย Express (Week 10) และเก็บสมาชิก / Library / ดาว ในฐานข้อมูล MySQL (Week 11)
-2. จำการล็อกอินด้วย Session + Cookie บน server (Week 12) และเข้ารหัสรหัสผ่านที่ server ด้วย bcrypt
-3. แก้ข้างในฟังก์ชันของ `js/account.js` ให้ใช้ `fetch()` คุยกับ server แทน localStorage
-4. (ถ้าต้องการ) ล็อกอินด้วย Gmail: ต้องสร้าง Google OAuth Client ID และยังต้องมีฐานข้อมูลเก็บ Library / ดาว เหมือนเดิม
+1. ล็อกอินด้วย Gmail: เปิด Google ใน Supabase (Authentication → Sign In / Providers → Google)
+   ต้องสร้าง Google OAuth Client ID ใน Google Cloud Console แล้วเพิ่มปุ่มที่เรียก `db.auth.signInWithOAuth({ provider: "google" })`
+2. หน้า Profile, กระดานอันดับ (leaderboard), คอมเมนต์ และแชทสด ตามที่โปรเจคกำหนด
 
 > โฟลเดอร์ `.claude/` เป็นไฟล์ตั้งค่าสำหรับเปิดดูตัวอย่างใน Claude เท่านั้น ไม่เกี่ยวกับตัวเว็บ

@@ -32,8 +32,8 @@ function showUserInHeader() {
 
   const logoutButton = makeElement("button", "btn btn-outline", "ออกจากระบบ");
   logoutButton.type = "button";
-  logoutButton.addEventListener("click", function () {
-    logoutUser();
+  logoutButton.addEventListener("click", async function () {
+    await logoutUser(); // รอ Supabase ออกจากระบบให้เสร็จก่อน แล้วค่อยเปลี่ยนหน้า
     window.location.href = "index.html";
   });
   box.appendChild(logoutButton);

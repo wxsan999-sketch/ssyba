@@ -5,7 +5,9 @@
 
 window.onload = startLibraryPage;
 
-function startLibraryPage() {
+async function startLibraryPage() {
+  await loadAccount(); // โหลดข้อมูลผู้ใช้และ Library จาก Supabase (account.js)
+
   // ยังไม่ล็อกอิน → ไปหน้าเข้าสู่ระบบ
   if (getCurrentUser() === null) {
     goToLogin();

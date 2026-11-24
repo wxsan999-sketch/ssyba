@@ -11,11 +11,15 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- External JavaScript (ลำดับสำคัญ! ไฟล์หลังใช้ของจากไฟล์ก่อนหน้า)
-       1) games-data.js = ข้อมูลเกม (ตัวแปร GAMES)
-       2) account.js    = ระบบบัญชีผู้ใช้ / Library / ดาว
-       3) common.js     = ฟังก์ชันใช้ร่วมกันทุกหน้า
-       4) cards.js      = สร้างการ์ดเกม
-       5) library.js    = โค้ดของหน้านี้ -->
+       1) supabase.js        = ตัวช่วยคุยกับฐานข้อมูล Supabase (โหลดจาก CDN)
+       2) supabase-config.js = ที่อยู่และ key ของฐานข้อมูลเรา
+       3) games-data.js      = ข้อมูลเกม (ตัวแปร GAMES)
+       4) account.js         = ระบบบัญชีผู้ใช้ / Library / ดาว
+       5) common.js          = ฟังก์ชันใช้ร่วมกันทุกหน้า
+       6) cards.js           = สร้างการ์ดเกม
+       7) library.js         = โค้ดของหน้านี้ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/games-data.js"></script>
   <script src="js/account.js"></script>
   <script src="js/common.js"></script>

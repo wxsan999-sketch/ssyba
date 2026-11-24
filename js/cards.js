@@ -8,7 +8,7 @@
      - ปกเกม / ปุ่ม "▶ เล่นเลย"             → เข้าไปเล่นเกม
    สองปุ่มแรกต้องล็อกอินก่อน ถ้ายังไม่ล็อกอินจะพาไปหน้าเข้าสู่ระบบ
 
-   ข้อมูล Library และดาว อ่าน/เขียนผ่านฟังก์ชันใน account.js
+   ข้อมูล Library และดาว อ่าน/เขียนผ่านฟังก์ชันใน account.js (เก็บใน Supabase)
    ===================================================================== */
 
 
@@ -227,24 +227,35 @@ function handleGridClick(event) {
 }
 
 // กดปุ่ม "เก็บลง Library"
-function handleLibraryClick(button, gameId) {
+async function handleLibraryClick(button, gameId) {
   if (getCurrentUser() === null) {
     goToLogin(); // ยังไม่ล็อกอิน → ไปหน้าเข้าสู่ระบบ (common.js)
     return;
   }
 
-  const isSaved = toggleLibrary(gameId); // account.js: เก็บ/เอาออก แล้วบอกสถานะใหม่
-  showLibraryState(button, isSaved);
+  button.disabled = true;                    // กันกดซ้ำระหว่างรอฐานข้อมูล
+  const error = await toggleLibrary(gameId); // account.js: บันทึกลงฐานข้อมูล
+  button.disabled = false;
+
+  if (error !== null) {
+    alert(error);
+    return;
+  }
+  showLibraryState(button, getLibrary().includes(gameId));
 }
 
 // กดดาวดวงที่ 1–5
-function handleStarClick(card, gameId, stars) {
+async function handleStarClick(card, gameId, stars) {
   if (getCurrentUser() === null) {
     goToLogin();
     return;
   }
 
-  rateGame(gameId, stars); // account.js: บันทึกดาว
+  const error = await rateGame(gameId, stars); // account.js: บันทึกดาวลงฐานข้อมูล
+  if (error !== null) {
+    alert(error);
+    return;
+  }
 
   // คะแนนเฉลี่ยเปลี่ยน → สร้างแถวคะแนนเฉลี่ยใหม่มาแทนแถวเดิม
   card.querySelector(".game-rating").replaceWith(createAverageRating(gameId));

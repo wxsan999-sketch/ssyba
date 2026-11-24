@@ -134,6 +134,13 @@ a {
   transform: translateY(1px) scale(0.97);
 }
 
+/* ปุ่มที่กดไม่ได้ชั่วคราว (ระหว่างรอฐานข้อมูลตอบกลับ) */
+.btn:disabled,
+.library-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 
 /* ---------- 3) เนื้อหาหลักของหน้า ---------- */
 

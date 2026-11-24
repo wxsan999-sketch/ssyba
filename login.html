@@ -10,7 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- 1) account.js = ระบบบัญชีผู้ใช้   2) common.js = ฟังก์ชันใช้ร่วมกัน   3) login.js = โค้ดของหน้านี้ -->
+  <!-- ลำดับสำคัญ: 1) supabase.js (CDN)  2) supabase-config.js  3) account.js = ระบบบัญชีผู้ใช้
+                   4) common.js = ฟังก์ชันใช้ร่วมกัน  5) login.js = โค้ดของหน้านี้ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/account.js"></script>
   <script src="js/common.js"></script>
   <script src="js/login.js"></script>
@@ -52,7 +55,7 @@
         <!-- ข้อความแจ้งข้อผิดพลาด เช่น รหัสผ่านไม่ถูกต้อง (login.js เป็นคนใส่) -->
         <p id="form-error" class="form-error" role="alert"></p>
 
-        <button type="submit" class="btn btn-primary btn-wide">เข้าสู่ระบบ</button>
+        <button type="submit" id="login-button" class="btn btn-primary btn-wide">เข้าสู่ระบบ</button>
       </form>
 
       <p class="auth-switch">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></p>

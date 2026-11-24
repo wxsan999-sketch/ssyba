@@ -4,7 +4,9 @@
 
 window.onload = startLoginPage;
 
-function startLoginPage() {
+async function startLoginPage() {
+  await loadAccount(); // เช็คกับ Supabase ว่าล็อกอินอยู่หรือยัง (account.js)
+
   // ล็อกอินอยู่แล้ว → ไม่ต้องอยู่หน้านี้ กลับหน้าแรกเลย
   if (getCurrentUser() !== null) {
     window.location.href = "index.html";
@@ -27,9 +29,14 @@ async function handleLogin(event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const errorBox = document.getElementById("form-error");
+  const submitButton = document.getElementById("login-button");
+
+  errorBox.textContent = "";
+  submitButton.disabled = true; // กันกดซ้ำระหว่างรอ Supabase ตอบกลับ
 
   // loginUser อยู่ใน account.js: สำเร็จได้ null, ไม่สำเร็จได้ข้อความบอกสาเหตุ
   const error = await loginUser(email, password);
+  submitButton.disabled = false;
 
   if (error !== null) {
     errorBox.textContent = error;
