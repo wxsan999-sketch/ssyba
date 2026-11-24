@@ -1,0 +1,14 @@
+.sea-garden-saves { position: fixed; left: 16px; bottom: 90px; z-index: 500; }
+.sea-garden-saves > button, .sea-save-panel, .sea-save-section button, .sea-save-panel > button {
+  background: #103d4b; color: #f1fffb; border: 1px solid #518b91; border-radius: 6px;
+}
+.sea-garden-saves button, .sea-save-section button { padding: 5px 11px; cursor: pointer; }
+.sea-save-section button:disabled { opacity: .5; cursor: wait; }
+.sea-save-panel { position: absolute; bottom: calc(100% + 4px); left: 0; padding: 12px; width: min(320px, 85vw); max-height: 55vh; overflow-y: auto; }
+.sea-save-section { border-top: 1px solid #518b91; margin-top: 10px; padding-top: 8px; }
+.sea-save-panel .sea-save-section:first-child { border: 0; margin: 0; padding-top: 0; }
+.sea-save-section h3 { color: #a9f3df; font-size: 1rem; margin: 0 0 8px; }
+.sea-save-section p { font-size: .85rem; margin: 6px 0; }
+.sea-save-actions, .sea-save-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.sea-save-row { margin-top: 8px; }
+.sea-save-row span { flex: 1; overflow-wrap: anywhere; }

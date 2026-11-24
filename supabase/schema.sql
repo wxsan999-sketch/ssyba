@@ -170,6 +170,9 @@ insert into public.games (id, title) values
   (1, 'Submarine vs Fish')
 on conflict (id) do update set title = excluded.title;
 
+insert into public.games (id, title) values (3, 'Sea Farm')
+on conflict (id) do nothing;
+
 -- ทุกคนดูรายชื่อเกมได้ แต่แก้ผ่านหน้าเว็บไม่ได้ (แก้ได้ใน Dashboard เท่านั้น)
 alter table public.games enable row level security;
 

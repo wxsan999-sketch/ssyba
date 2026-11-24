@@ -1,0 +1,28 @@
+{
+  "title": "Sea Farm",
+  "subtitle": "Tend your sea garden and shape the reef around it.",
+  "cards": {
+    "designer": {
+      "title": "Reef Designer",
+      "description": "Sculpt the seabed and place reef life."
+    },
+    "crops": {
+      "title": "Sea Garden",
+      "description": "Grow and harvest 28 marine cultures."
+    },
+    "game": {
+      "title": "Open ocean",
+      "description": "Coming soon"
+    }
+  },
+  "prototype": {
+    "thanks": "Welcome to Sea Farm",
+    "notice": "Pick a dive site to begin.",
+    "openRadio": "Reef radio"
+  },
+  "social": {
+    "github": "GitHub",
+    "discord": "Discord",
+    "bluesky": "Bluesky"
+  }
+}

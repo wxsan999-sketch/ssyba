@@ -1,0 +1,25 @@
+.sea-guide-backdrop {
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center; padding: 12px;
+  background: #011a29ba; backdrop-filter: blur(3px);
+}
+.sea-guide {
+  width: min(570px, 100%); max-height: min(82dvh, 680px);
+  display: flex; flex-direction: column; overflow: hidden;
+  color: #e6f7ed; background: #103847;
+  border: 1px solid #79b8bb; border-radius: 14px; box-shadow: 0 15px 55px #011e30aa;
+}
+.sea-guide header, .sea-guide__body, .sea-guide footer { padding: 18px 24px; }
+.sea-guide header { background: #144654; border-bottom: 1px solid #47737b; }
+.sea-guide h1 { font-size: 26px; line-height: 1.25; color: #ffdf9b; font-weight: 750; margin: 0; }
+.sea-guide header p { margin: 8px 0 0; font-size: 14px; line-height: 1.55; }
+.sea-guide__body { overflow-y: auto; min-height: 0; }
+.sea-guide h2 { font-size: 17px; font-weight: 700; color: #a8e4d2; margin: 0 0 8px; }
+.sea-guide section + section { margin-top: 20px; }
+.sea-guide dl { margin: 0; }
+.sea-guide dl > div { padding: 8px 0; border-bottom: 1px solid #37606b; }
+.sea-guide dt { font-weight: 650; font-size: 14px; }
+.sea-guide dd { color: #c2dedf; font-size: 13px; margin: 3px 0 0; line-height: 1.5; }
+.sea-guide footer { text-align: right; border-top: 1px solid #47737b; }
+.sea-guide button { padding: 9px 19px; border-radius: 7px; color: #153e45; background: #ffde93; font-weight: 650; cursor: pointer; }
+.sea-guide button:focus-visible { outline: 2px solid white; outline-offset: 2px; }

@@ -13,3 +13,5 @@
 
 const SUPABASE_URL = "https://ppiemzkqcioeewllxlut.supabase.co";
 const SUPABASE_KEY = "sb_publishable_11OW7Nr30wrhFnOEqKQJ8w_TSNr4sz0";
+
+globalThis.SSYBA_SUPABASE = Object.freeze({ url: SUPABASE_URL, key: SUPABASE_KEY });

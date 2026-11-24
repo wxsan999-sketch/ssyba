@@ -1,0 +1,25 @@
+.sea-languages {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #78b4b6;
+  border-radius: 9px;
+  background: #073744e8;
+  z-index: 2;
+}
+.sea-languages button {
+  min-width: 35px;
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #e1f6ee;
+  cursor: pointer;
+  font: 600 13px/1.4 system-ui, sans-serif;
+}
+.sea-languages button[aria-pressed="true"] { background: #baded2; color: #153e47; }
+.sea-languages button:focus-visible { outline: 2px solid #ffde8b; }

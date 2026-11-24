@@ -1,0 +1,108 @@
+{
+  "welcome": {
+    "title": "Sea Garden",
+    "version": "Field guide",
+    "introduction": "Rake a bed in the sand, plant a culture, then give it nutrients. When the fronds mature, take your shears and gather your first harvest.",
+    "farmingTools": "Diving kit",
+    "gameMechanics": "Tending the garden",
+    "startFarming": "Enter the garden",
+    "tools": {
+      "hoe": {
+        "title": "🔱 Sand Rake",
+        "description": "Rake a flat patch of seabed to prepare a growing bed."
+      },
+      "seeds": {
+        "title": "🧪 Starter cultures",
+        "description": "Choose a culture from your pack and plant it in a prepared bed."
+      },
+      "wateringCan": {
+        "title": "🫧 Nutrient Pump",
+        "description": "Feed each culture with a dose of nutrients to start its growth."
+      },
+      "scythe": {
+        "title": "✂️ Harvest Shears",
+        "description": "Clip mature specimens and collect the harvest in your pack."
+      }
+    },
+    "mechanics": {
+      "growthStages": {
+        "title": "Growth stages",
+        "description": "Cultures grow while nourished. Use the pump again when the nutrient supply runs out."
+      },
+      "harvest": {
+        "title": "Harvest",
+        "description": "Hover over a specimen with the shears to check when it will be ready."
+      },
+      "timeControl": {
+        "title": "Dive clock",
+        "description": "Use the time controls to watch growth at a faster pace."
+      },
+      "inventory": {
+        "title": "Dive pack",
+        "description": "Press I to open your pack and drag a culture onto your hotbar."
+      },
+      "hotbar": {
+        "title": "Hotbars",
+        "description": "Press Q to switch hotbars, then use a number key to select a slot."
+      },
+      "camera": {
+        "title": "Camera",
+        "description": "Move with WASD or drag with the middle mouse button. Scroll to zoom."
+      }
+    }
+  },
+  "inventory": {
+    "title": "Dive pack",
+    "items": "Cultures & supplies",
+    "tools": "Dive tools"
+  },
+  "tooltip": {
+    "ready": "Mature",
+    "dead": "Withered",
+    "readyToHarvest": "Ready to harvest",
+    "needsWater": "Needs nutrients",
+    "growing": "Growing…",
+    "watered": "Nourished",
+    "stage": "Stage"
+  },
+  "cultureName": "{{name}} Culture",
+  "species": {
+    "corn-crop": "Giant Kelp",
+    "carrot-crop": "Sea Grapes",
+    "cauliflower-crop": "Pearl Bubble Algae",
+    "purple-onion-crop": "Purple Dulse",
+    "eggplant-crop": "Velvet Hornweed",
+    "blue-flower-crop": "Peacock Weed",
+    "lettuce-crop": "Sea Lettuce",
+    "wheat-crop": "Eelgrass",
+    "pumpkin-crop": "Bull Kelp",
+    "turnip-crop": "Red Gracilaria",
+    "cabbage-crop": "Wakame",
+    "radish-crop": "Sea Whistle",
+    "blue-star-crop": "Starlight Coralline",
+    "cucumber-crop": "Oarweed",
+    "sunflower-crop": "Golden Sea Fan",
+    "ginger-crop": "Irish Moss",
+    "potato-crop": "Neptune's Shaving Brush",
+    "watermelon-crop": "Sailor's Eyeball",
+    "starfruit-crop": "Tide Lantern",
+    "moonflower-crop": "Moonlace",
+    "banana-crop": "Ribbon Kelp",
+    "pineapple-crop": "Feather Caulerpa",
+    "melon-crop": "Sea Palm",
+    "garlic-crop": "Mermaid's Wineglass",
+    "red-pepper-crop": "Ruby Sea Plume",
+    "rare-crop": "Sargassum",
+    "blue-carrot-crop": "Sapphire Spiralkelp",
+    "broccoli-crop": "Calcified Fanweed"
+  },
+  "gear": {
+    "axe": "Kelp Knife",
+    "pickaxe": "Reef Pick",
+    "hoe": "Sand Rake",
+    "wateringCan": "Nutrient Pump",
+    "scythe": "Harvest Shears",
+    "wood": "Kelp Fiber",
+    "stone": "Reef Stone"
+  }
+}

@@ -41,6 +41,18 @@
 
 const GAMES = [
   {
+    id: 3,
+    title: "Sea Farm",
+    description: "เพาะสาหร่าย เติมสารอาหาร แล้วเก็บเกี่ยวเมื่อโตเต็มที่ หรือออกแบบแนวปะการังและบันทึกฟาร์มใต้ทะเลของคุณ",
+    author: "ดัดแปลงจากเอนจินของ Leo Castellanos",
+    price: 0,
+    genre: "Simulation · ฟาร์มใต้ทะเล",
+    cover: "games/sea-farm/images/sea-farm-cover.jpg",
+    color1: "#146478",
+    color2: "#073644",
+    url: "games/sea-farm/"
+  },
+  {
     id: 1,
     title: "Submarine vs Fish",
     description: "เกม 2 ผู้เล่นบนคีย์บอร์ดเดียว เรือดำน้ำไล่จับปลา ปลาใช้สกิลหนีเอาตัวรอด ได้รู้จักสัตว์ทะเลลึกไปด้วย",
