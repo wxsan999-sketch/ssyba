@@ -1,0 +1,28 @@
+{
+  "title": "Sea Farm",
+  "subtitle": "เพาะสวนใต้ทะเล แล้วแต่งแนวปะการังรอบสวน",
+  "cards": {
+    "designer": {
+      "title": "ออกแบบแนวปะการัง",
+      "description": "ปรับพื้นทะเลและจัดวางสิ่งมีชีวิตในแนวปะการัง"
+    },
+    "crops": {
+      "title": "สวนใต้ทะเล",
+      "description": "เพาะเลี้ยงและเก็บเกี่ยวพืชทะเล 28 ชนิด"
+    },
+    "game": {
+      "title": "ทะเลเปิด",
+      "description": "เร็ว ๆ นี้"
+    }
+  },
+  "prototype": {
+    "thanks": "ยินดีต้อนรับสู่ Sea Farm",
+    "notice": "เลือกจุดดำน้ำเพื่อเริ่มเล่น",
+    "openRadio": "วิทยุแนวปะการัง"
+  },
+  "social": {
+    "github": "GitHub",
+    "discord": "Discord",
+    "bluesky": "Bluesky"
+  }
+}

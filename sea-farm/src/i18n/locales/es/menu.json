@@ -1,0 +1,28 @@
+{
+  "title": "Sea Farm",
+  "subtitle": "Cultiva tu huerto marino y da forma al arrecife que lo rodea.",
+  "cards": {
+    "designer": {
+      "title": "Diseñador de arrecifes",
+      "description": "Modela el fondo y coloca flora y fauna marinas."
+    },
+    "crops": {
+      "title": "Huerto marino",
+      "description": "Cultiva y cosecha 28 especies marinas."
+    },
+    "game": {
+      "title": "Mar abierto",
+      "description": "Próximamente"
+    }
+  },
+  "prototype": {
+    "thanks": "Te damos la bienvenida a Sea Farm",
+    "notice": "Elige un punto de inmersión para comenzar.",
+    "openRadio": "Radio del arrecife"
+  },
+  "social": {
+    "github": "GitHub",
+    "discord": "Discord",
+    "bluesky": "Bluesky"
+  }
+}

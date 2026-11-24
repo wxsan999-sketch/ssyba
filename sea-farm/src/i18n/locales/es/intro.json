@@ -1,0 +1,27 @@
+{
+  "contract": {
+    "title": "ESTACIÓN DE ESTUDIO MARINO",
+    "applicationTitle": "REGISTRO DE BUCEO",
+    "assignment": "Zona",
+    "assignmentValue": "Sea Farm · Arrecife vivero",
+    "status": "Rango",
+    "statusValue": "Principiante",
+    "specialty": "Especialidad",
+    "specialtyValue": "Acuicultura",
+    "genreName": "Estación",
+    "genreValue": "Aguas someras",
+    "producerName": "Nombre de buzo",
+    "namePlaceholder": "Escribe tu nombre…",
+    "signButton": "REGISTRAR",
+    "processing": "REGISTRANDO…",
+    "approved": "INMERSIÓN AUTORIZADA"
+  },
+  "arrival": {
+    "welcome": "Bienvenido a Sea Farm",
+    "producer": "Buzo",
+    "startButton": "Sumergirse"
+  },
+  "busTransition": {
+    "onTheWay": "Descendiendo hacia Sea Farm…"
+  }
+}

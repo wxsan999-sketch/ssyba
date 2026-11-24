@@ -1,0 +1,111 @@
+{
+  "welcome": {
+    "title": "ออกแบบแนวปะการัง",
+    "version": "คู่มือนักดำน้ำ",
+    "assetsBy": "ภาพประกอบ",
+    "introduction": "ระบายพื้นทะเล จัดวางสิ่งมีชีวิต แล้วบันทึกแนวปะการังที่คุณออกแบบ",
+    "keyboardShortcuts": "ปุ่มลัด",
+    "toolbarFeatures": "เครื่องมือจัดการแนวปะการัง",
+    "communityTitle": "โปรเจกต์ Sea Farm",
+    "communityDescription": "ดูโปรเจกต์บน GitHub",
+    "joinDiscord": "เปิดโปรเจกต์",
+    "getStarted": "ลงไปที่แนวปะการัง",
+    "shortcuts": {
+      "cameraMovement": {
+        "title": "เลื่อนกล้อง",
+        "description": "เลื่อนไปดูบริเวณต่าง ๆ ของพื้นทะเล",
+        "key": "ปุ่มกลางเมาส์ / WASD"
+      },
+      "idleMode": {
+        "title": "โหมดเลือก",
+        "description": "เลือก ย้าย หรือลบวัตถุบนแนวปะการัง",
+        "key": "ESC"
+      },
+      "paintMode": {
+        "title": "ระบายพื้นทะเล",
+        "description": "เลือกแปรงแล้วระบายพื้นทะเล",
+        "key": "B"
+      },
+      "toggleGrid": {
+        "title": "สลับตาราง",
+        "description": "แสดงหรือซ่อนเส้นตาราง",
+        "key": "G"
+      },
+      "toggleWater": {
+        "title": "สลับผืนน้ำ",
+        "description": "แสดงหรือซ่อนผืนน้ำด้านหลัง",
+        "key": "O"
+      },
+      "hideUI": {
+        "title": "ซ่อนหน้าจอควบคุม",
+        "description": "แสดงหรือซ่อนปุ่มควบคุมตัวแก้ไข",
+        "key": "H"
+      }
+    },
+    "features": {
+      "resetGrid": {
+        "title": "ล้างแนวปะการัง",
+        "description": "ลบพื้นและวัตถุทั้งหมดในแนวปะการังนี้"
+      },
+      "timeOfDay": {
+        "title": "ช่วงเวลา",
+        "description": "เปลี่ยนแสงที่ส่องผ่านผิวน้ำตามช่วงเวลา"
+      },
+      "weather": {
+        "title": "กระแสน้ำ",
+        "description": "เลือกน้ำใส น้ำผุด คลื่นซัด หรือหิมะทะเล"
+      },
+      "waterVisibility": {
+        "title": "ผืนน้ำ",
+        "description": "แสดงหรือซ่อนผืนน้ำด้านหลัง"
+      },
+      "gridVisibility": {
+        "title": "ตาราง",
+        "description": "แสดงหรือซ่อนเส้นตาราง"
+      },
+      "gridSize": {
+        "title": "ขนาดแนวปะการัง",
+        "description": "กำหนดความกว้างและความสูงตั้งแต่ 4 ถึง 128 ช่อง"
+      },
+      "saveLoad": {
+        "title": "บันทึกและโหลด",
+        "description": "เก็บแบบแนวปะการังหรือเปิดแบบที่บันทึกไว้"
+      }
+    }
+  },
+  "toolbar": {
+    "resetFarm": "ล้างแนวปะการัง",
+    "resetConfirm": "ลบพื้นและวัตถุทั้งหมดในแนวปะการังนี้หรือไม่",
+    "saveLoad": "บันทึก / โหลด",
+    "spritesheets": "แผ่นภาพ",
+    "atlasEditor": "แก้ไขแผ่นภาพ"
+  },
+  "farmManager": {
+    "title": "สมุดบันทึกแนวปะการัง",
+    "currentFarm": "แนวปะการังปัจจุบัน",
+    "untitled": "แนวปะการังไม่มีชื่อ",
+    "save": "บันทึก",
+    "saved": "บันทึกแล้ว",
+    "download": "ดาวน์โหลด",
+    "import": "นำเข้า",
+    "new": "สร้างใหม่",
+    "savedFarms": "แนวปะการังที่บันทึกไว้",
+    "noFarms": "ยังไม่มีแนวปะการังที่บันทึกไว้",
+    "load": "โหลด",
+    "delete": "ลบ",
+    "deleteConfirm": "ลบแนวปะการังนี้หรือไม่",
+    "importError": "นำเข้าไฟล์แนวปะการังไม่สำเร็จ"
+  },
+  "time": {
+    "day": "กลางวัน",
+    "afternoon": "บ่าย",
+    "night": "กลางคืน",
+    "morning": "เช้า"
+  },
+  "weather": {
+    "sunny": "น้ำใส",
+    "rain": "น้ำผุด",
+    "storm": "คลื่นซัด",
+    "snow": "หิมะทะเล"
+  }
+}

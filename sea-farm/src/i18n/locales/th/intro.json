@@ -1,0 +1,27 @@
+{
+  "contract": {
+    "title": "สถานีสำรวจแนวปะการัง",
+    "applicationTitle": "ลงทะเบียนนักดำน้ำ",
+    "assignment": "จุดดำน้ำ",
+    "assignmentValue": "Sea Farm · แนวปะการังอนุบาล",
+    "status": "ระดับ",
+    "statusValue": "นักดำน้ำฝึกหัด",
+    "specialty": "ความเชี่ยวชาญ",
+    "specialtyValue": "การเพาะเลี้ยงพืชทะเล",
+    "genreName": "สถานี",
+    "genreValue": "เขตน้ำตื้น",
+    "producerName": "ชื่อนักดำน้ำ",
+    "namePlaceholder": "ใส่ชื่อของคุณ",
+    "signButton": "ลงทะเบียน",
+    "processing": "กำลังลงทะเบียน",
+    "approved": "พร้อมดำน้ำ"
+  },
+  "arrival": {
+    "welcome": "ยินดีต้อนรับสู่ Sea Farm",
+    "producer": "นักดำน้ำ",
+    "startButton": "เริ่มดำน้ำ"
+  },
+  "busTransition": {
+    "onTheWay": "กำลังดำลงสู่ Sea Farm"
+  }
+}

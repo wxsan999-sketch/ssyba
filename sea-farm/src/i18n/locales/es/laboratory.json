@@ -1,0 +1,111 @@
+{
+  "welcome": {
+    "title": "Diseñador de arrecifes",
+    "version": "Guía de campo",
+    "assetsBy": "Diseño gráfico",
+    "introduction": "Pinta el fondo, coloca vida marina y guarda tu propio paisaje submarino.",
+    "keyboardShortcuts": "Atajos de teclado",
+    "toolbarFeatures": "Controles del arrecife",
+    "communityTitle": "Proyecto Sea Farm",
+    "communityDescription": "Visita el proyecto en GitHub.",
+    "joinDiscord": "Abrir proyecto",
+    "getStarted": "Entrar al arrecife",
+    "shortcuts": {
+      "cameraMovement": {
+        "title": "Mover cámara",
+        "description": "Explora el fondo marino.",
+        "key": "Botón central / WASD"
+      },
+      "idleMode": {
+        "title": "Modo de selección",
+        "description": "Selecciona, mueve o elimina objetos del arrecife.",
+        "key": "ESC"
+      },
+      "paintMode": {
+        "title": "Pintar terreno",
+        "description": "Elige un pincel para pintar una zona del fondo.",
+        "key": "B"
+      },
+      "toggleGrid": {
+        "title": "Alternar cuadrícula",
+        "description": "Muestra u oculta la cuadrícula.",
+        "key": "G"
+      },
+      "toggleWater": {
+        "title": "Alternar agua",
+        "description": "Muestra u oculta el fondo de agua.",
+        "key": "O"
+      },
+      "hideUI": {
+        "title": "Ocultar interfaz",
+        "description": "Muestra u oculta los controles del editor.",
+        "key": "H"
+      }
+    },
+    "features": {
+      "resetGrid": {
+        "title": "Limpiar arrecife",
+        "description": "Quita todas las casillas y objetos del arrecife."
+      },
+      "timeOfDay": {
+        "title": "Hora del día",
+        "description": "Cambia la luz que atraviesa el agua."
+      },
+      "weather": {
+        "title": "Corrientes",
+        "description": "Elige agua clara, afloramiento, oleaje o nieve marina."
+      },
+      "waterVisibility": {
+        "title": "Agua abierta",
+        "description": "Muestra u oculta el fondo de agua."
+      },
+      "gridVisibility": {
+        "title": "Cuadrícula",
+        "description": "Muestra u oculta la cuadrícula."
+      },
+      "gridSize": {
+        "title": "Tamaño del arrecife",
+        "description": "Elige un ancho y un alto de 4 a 128 casillas."
+      },
+      "saveLoad": {
+        "title": "Guardar y cargar",
+        "description": "Guarda tu arrecife o abre un diseño guardado."
+      }
+    }
+  },
+  "toolbar": {
+    "resetFarm": "Limpiar arrecife",
+    "resetConfirm": "¿Eliminar todas las casillas y objetos del arrecife?",
+    "saveLoad": "Guardar / Cargar",
+    "spritesheets": "Hojas de sprites",
+    "atlasEditor": "Editor de atlas"
+  },
+  "farmManager": {
+    "title": "Registro de arrecifes",
+    "currentFarm": "ARRECIFE ACTUAL",
+    "untitled": "Arrecife sin nombre",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "download": "Descargar",
+    "import": "Importar",
+    "new": "Nuevo",
+    "savedFarms": "ARRECIFES GUARDADOS",
+    "noFarms": "No hay arrecifes guardados",
+    "load": "Cargar",
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Eliminar este arrecife?",
+    "importError": "No se pudo importar el archivo"
+  },
+  "time": {
+    "day": "Día",
+    "afternoon": "Tarde",
+    "night": "Noche",
+    "morning": "Mañana"
+  },
+  "weather": {
+    "sunny": "Agua clara",
+    "rain": "Afloramiento",
+    "storm": "Oleaje",
+    "snow": "Nieve marina"
+  }
+}

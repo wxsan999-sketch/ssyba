@@ -1,0 +1,29 @@
+.water-current {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+  i { position: absolute; animation: var(--speed) var(--delay) linear infinite; }
+}
+.water-current--rain {
+  background: linear-gradient(0deg, #159c9f1c, transparent 70%);
+  i { bottom: -15px; left: var(--pos); width: var(--size); height: var(--size); border: 1px solid #bcfff3aa; border-radius: 50%; animation-name: reef-upwelling; }
+}
+.water-current--storm {
+  background: linear-gradient(110deg, #073e5e39, #0d657a40);
+  i { top: var(--pos); left: -40px; width: calc(3 * var(--size)); height: 2px; background: #c5faff7a; border-radius: 100%; animation-name: reef-surge; animation-duration: calc(var(--speed) / 2); }
+}
+.water-current--snow {
+  background: #365e871a;
+  i { top: -12px; left: var(--pos); width: calc(var(--size) / 2); height: calc(var(--size) / 2); background: #ecfff2bc; border-radius: 40%; animation-name: reef-snow; }
+}
+@keyframes reef-upwelling {
+  50% { transform: translate(16px, -50vh); }
+  100% { transform: translate(3px, -105vh); }
+}
+@keyframes reef-surge { to { transform: translate(110vw, -9vh) rotate(-4deg); } }
+@keyframes reef-snow { to { transform: translate(36px, 105vh) rotate(180deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .water-current i { animation: none; top: var(--pos); bottom: auto; left: calc(var(--pos) * .7); }
+}

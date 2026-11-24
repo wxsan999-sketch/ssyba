@@ -1,0 +1,27 @@
+{
+  "contract": {
+    "title": "REEF SURVEY STATION",
+    "applicationTitle": "DIVER REGISTRATION",
+    "assignment": "Dive site",
+    "assignmentValue": "Sea Farm · Nursery Reef",
+    "status": "Rank",
+    "statusValue": "New diver",
+    "specialty": "Specialty",
+    "specialtyValue": "Marine cultivation",
+    "genreName": "Station",
+    "genreValue": "Shallows",
+    "producerName": "Diver name",
+    "namePlaceholder": "Enter your name…",
+    "signButton": "REGISTER",
+    "processing": "REGISTERING…",
+    "approved": "CLEARED TO DIVE"
+  },
+  "arrival": {
+    "welcome": "Welcome to Sea Farm",
+    "producer": "Diver",
+    "startButton": "Dive in"
+  },
+  "busTransition": {
+    "onTheWay": "Descending to Sea Farm…"
+  }
+}

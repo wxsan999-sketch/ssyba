@@ -1,0 +1,27 @@
+.reef-guide {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(540px, calc(100vw - 28px));
+  padding: 0;
+  overflow: visible;
+  color: #e6fff5;
+  background: #0b3844;
+  border: 1px solid #649791;
+  border-radius: 14px;
+  box-shadow: 0 8px 0 #052e3b, 0 24px 70px #00171ec4;
+}
+.reef-guide::backdrop { background: #001823bf; }
+.reef-guide__sheet { display: flex; flex-direction: column; max-height: 84vh; max-height: 84svh; }
+.reef-guide__header { display: flex; align-items: center; gap: 14px; padding: 18px 24px; border-bottom: 1px solid #46747a; }
+.reef-guide__header img { border-radius: 9px; image-rendering: pixelated; }
+.reef-guide__header h1 { margin: 0; color: #ffdf98; font-size: clamp(22px, 4vw, 29px); font-weight: 750; }
+.reef-guide__body { padding: 18px 24px; overflow-y: auto; font-size: 14px; }
+.reef-guide__body p { margin: 0; color: #d3eee9; }
+.reef-guide h2 { margin: 20px 0 4px; color: #8ee5d4; font-size: 18px; font-weight: 700; }
+.reef-guide dl div { padding: 10px 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid #2b5961; }
+.reef-guide dt { font-weight: 600; }
+.reef-guide small { display: block; font-size: 13px; font-weight: 400; color: #b8dcd8; }
+.reef-guide kbd { display: block; padding: 3px 8px; color: #ffdf98; background: #163944; border: 1px solid #588383; border-radius: 4px; text-align: center; }
+.reef-guide footer { padding: 14px 24px; border-top: 1px solid #46747a; display: flex; justify-content: flex-end; }
+.reef-guide footer button { padding: 8px 20px; background: #ffdf92; color: #163c44; border-radius: 7px; font-weight: 700; cursor: pointer; }

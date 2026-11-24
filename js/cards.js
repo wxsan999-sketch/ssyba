@@ -64,7 +64,14 @@ function createGameCard(game) {
   cover.style.backgroundImage =
     "linear-gradient(135deg, " + game.color1 + ", " + game.color2 + ")";
 
-  cover.appendChild(makeElement("span", "cover-icon", game.icon));
+  if (game.cover) {
+    const image = makeElement("img", "cover-art");
+    image.src = game.cover;
+    image.alt = "";
+    cover.appendChild(image);
+  } else {
+    cover.appendChild(makeElement("span", "cover-icon", game.icon));
+  }
   cover.appendChild(makeElement("span", "cover-title", game.title));
   cover.appendChild(createLibraryButton(game.id));
   card.appendChild(cover);
