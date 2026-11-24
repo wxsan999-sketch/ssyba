@@ -1,0 +1,108 @@
+{
+  "welcome": {
+    "title": "Huerto marino",
+    "version": "Guía de campo",
+    "introduction": "Rastrilla un lecho de arena, planta un cultivo y dale nutrientes. Cuando madure, recógelo con las tijeras.",
+    "farmingTools": "Equipo de buceo",
+    "gameMechanics": "Cuidados del huerto",
+    "startFarming": "Entrar al huerto",
+    "tools": {
+      "hoe": {
+        "title": "🔱 Rastrillo de arena",
+        "description": "Rastrilla una zona llana del fondo para preparar un lecho."
+      },
+      "seeds": {
+        "title": "🧪 Cultivos iniciales",
+        "description": "Elige un cultivo de la mochila y siémbralo en un lecho preparado."
+      },
+      "wateringCan": {
+        "title": "🫧 Bomba de nutrientes",
+        "description": "Dale nutrientes a cada cultivo para que empiece a crecer."
+      },
+      "scythe": {
+        "title": "✂️ Tijeras de cosecha",
+        "description": "Corta los ejemplares maduros y guarda la cosecha en la mochila."
+      }
+    },
+    "mechanics": {
+      "growthStages": {
+        "title": "Etapas de crecimiento",
+        "description": "Los cultivos crecen mientras tienen nutrientes. Vuelve a usar la bomba cuando se agoten."
+      },
+      "harvest": {
+        "title": "Cosecha",
+        "description": "Pasa las tijeras sobre un ejemplar para ver cuánto le falta para madurar."
+      },
+      "timeControl": {
+        "title": "Reloj de inmersión",
+        "description": "Acelera el reloj para observar el crecimiento en menos tiempo."
+      },
+      "inventory": {
+        "title": "Mochila de buceo",
+        "description": "Pulsa I para abrir la mochila y arrastra un cultivo a la barra rápida."
+      },
+      "hotbar": {
+        "title": "Barras rápidas",
+        "description": "Pulsa Q para cambiar de barra y una tecla numérica para seleccionar una casilla."
+      },
+      "camera": {
+        "title": "Cámara",
+        "description": "Usa WASD o arrastra con el botón central del ratón. Gira la rueda para acercar o alejar."
+      }
+    }
+  },
+  "inventory": {
+    "title": "Mochila de buceo",
+    "items": "Cultivos y materiales",
+    "tools": "Herramientas"
+  },
+  "tooltip": {
+    "ready": "Maduro",
+    "dead": "Marchito",
+    "readyToHarvest": "Listo para cosechar",
+    "needsWater": "Necesita nutrientes",
+    "growing": "Creciendo…",
+    "watered": "Con nutrientes",
+    "stage": "Etapa"
+  },
+  "cultureName": "Cultivo de {{name}}",
+  "species": {
+    "corn-crop": "Kelp gigante",
+    "carrot-crop": "Uvas de mar",
+    "cauliflower-crop": "Alga burbuja perla",
+    "purple-onion-crop": "Dulse púrpura",
+    "eggplant-crop": "Codium aterciopelado",
+    "blue-flower-crop": "Alga pavo real",
+    "lettuce-crop": "Lechuga de mar",
+    "wheat-crop": "Zostera marina",
+    "pumpkin-crop": "Kelp de bulbo",
+    "turnip-crop": "Gracilaria roja",
+    "cabbage-crop": "Wakame",
+    "radish-crop": "Silbato de mar",
+    "blue-star-crop": "Coralina estelar",
+    "cucumber-crop": "Laminaria digitada",
+    "sunflower-crop": "Abanico de mar dorado",
+    "ginger-crop": "Musgo de Irlanda",
+    "potato-crop": "Brocha de Neptuno",
+    "watermelon-crop": "Ojo de marinero",
+    "starfruit-crop": "Farol de marea",
+    "moonflower-crop": "Encaje de luna",
+    "banana-crop": "Kelp de cinta",
+    "pineapple-crop": "Caulerpa plumosa",
+    "melon-crop": "Palmera de mar",
+    "garlic-crop": "Copa de sirena",
+    "red-pepper-crop": "Pluma de mar rubí",
+    "rare-crop": "Sargazo",
+    "blue-carrot-crop": "Kelp zafiro en espiral",
+    "broccoli-crop": "Halimeda"
+  },
+  "gear": {
+    "axe": "Cuchillo de kelp",
+    "pickaxe": "Pico de arrecife",
+    "hoe": "Rastrillo de arena",
+    "wateringCan": "Bomba de nutrientes",
+    "scythe": "Tijeras de cosecha",
+    "wood": "Fibra de kelp",
+    "stone": "Piedra de arrecife"
+  }
+}

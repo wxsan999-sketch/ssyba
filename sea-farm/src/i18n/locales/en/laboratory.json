@@ -1,0 +1,111 @@
+{
+  "welcome": {
+    "title": "Reef Designer",
+    "version": "Field guide",
+    "assetsBy": "Artwork",
+    "introduction": "Paint seabed tiles, place reef life and save your own underwater landscape.",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "toolbarFeatures": "Reef controls",
+    "communityTitle": "Sea Farm project",
+    "communityDescription": "Visit the project on GitHub.",
+    "joinDiscord": "Open project",
+    "getStarted": "Enter the reef",
+    "shortcuts": {
+      "cameraMovement": {
+        "title": "Pan camera",
+        "description": "Explore the seabed.",
+        "key": "Middle mouse / WASD"
+      },
+      "idleMode": {
+        "title": "Selection mode",
+        "description": "Select, move or remove reef objects.",
+        "key": "ESC"
+      },
+      "paintMode": {
+        "title": "Paint terrain",
+        "description": "Choose a brush to paint a stretch of seafloor.",
+        "key": "B"
+      },
+      "toggleGrid": {
+        "title": "Toggle grid",
+        "description": "Show or hide the tile grid.",
+        "key": "G"
+      },
+      "toggleWater": {
+        "title": "Toggle open water",
+        "description": "Show or hide the water backdrop.",
+        "key": "O"
+      },
+      "hideUI": {
+        "title": "Hide interface",
+        "description": "Toggle the editor controls.",
+        "key": "H"
+      }
+    },
+    "features": {
+      "resetGrid": {
+        "title": "Clear reef",
+        "description": "Remove every tile and object from this reef."
+      },
+      "timeOfDay": {
+        "title": "Time of day",
+        "description": "Change the light that filters through the water."
+      },
+      "weather": {
+        "title": "Currents",
+        "description": "Choose clear water, upwelling, surge or marine snow."
+      },
+      "waterVisibility": {
+        "title": "Open water",
+        "description": "Toggle the open-water backdrop."
+      },
+      "gridVisibility": {
+        "title": "Grid",
+        "description": "Show or hide the tile grid."
+      },
+      "gridSize": {
+        "title": "Reef size",
+        "description": "Choose a width and height from 4 to 128 tiles."
+      },
+      "saveLoad": {
+        "title": "Save and load",
+        "description": "Keep a copy of your reef layout or open a saved design."
+      }
+    }
+  },
+  "toolbar": {
+    "resetFarm": "Clear reef",
+    "resetConfirm": "Clear every tile and object from this reef?",
+    "saveLoad": "Save / Load",
+    "spritesheets": "Sprite sheets",
+    "atlasEditor": "Atlas editor"
+  },
+  "farmManager": {
+    "title": "Reef log",
+    "currentFarm": "CURRENT REEF",
+    "untitled": "Untitled reef",
+    "save": "Save",
+    "saved": "Saved",
+    "download": "Download",
+    "import": "Import",
+    "new": "New",
+    "savedFarms": "SAVED REEFS",
+    "noFarms": "No saved reefs yet",
+    "load": "Load",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this reef?",
+    "importError": "Could not import the reef file"
+  },
+  "time": {
+    "day": "Day",
+    "afternoon": "Afternoon",
+    "night": "Night",
+    "morning": "Morning"
+  },
+  "weather": {
+    "sunny": "Clear water",
+    "rain": "Upwelling",
+    "storm": "Surge",
+    "snow": "Marine snow"
+  }
+}

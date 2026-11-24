@@ -4,16 +4,17 @@
 สมัครสมาชิก / เข้าสู่ระบบ แล้วเก็บเกมที่ชอบลง **Library** และ **ให้ดาว** เกมได้
 เพิ่มเกมได้ที่ `js/games-data.js` (มีตัวอย่างให้คัดลอกในไฟล์)
 
-ตอนนี้มีเกม 4 เกม อยู่ในโฟลเดอร์ `games/` กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น
+ตอนนี้มีเกม 5 เกม อยู่ในโฟลเดอร์ `games/` กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น
 
-| เกม | โฟลเดอร์ | ผู้สร้าง / ที่มา |
-|---|---|---|
-| **Submarine vs Fish** (เกม Unity ที่ build เป็นเว็บ) | `games/submarine-vs-fish/` | ทีมของเรา |
-| **Fishaviour** | `games/fishaviour/` | Blue-Phoenix82 — https://github.com/Blue-Phoenix82/fishaviour |
-| **Abyssal Garden** | `games/abyssal-garden/` | Maksymilian Dendura (Noniv) — https://github.com/Noniv/abyssal-garden |
-| **FEED-FISH** | `games/feed-fish/` | Vishnu Pradeep — https://github.com/pradeep-vishnu/The-Game-Name-is-FEED-FISH |
+| id | เกม | โฟลเดอร์ | ผู้สร้าง / ที่มา |
+|---|---|---|---|
+| 1 | **Submarine vs Fish** เกม Unity สำหรับสองผู้เล่นบนคีย์บอร์ดเดียว | `games/submarine-vs-fish/` | ทีมของเรา |
+| 2 | **Fishaviour** | `games/fishaviour/` | Blue-Phoenix82 — https://github.com/Blue-Phoenix82/fishaviour |
+| 3 | **Sea Farm** เพาะพืชทะเล 28 ชนิดในสวนใต้ทะเล หรือสร้างแผนที่ในโหมดออกแบบแนวปะการัง | `games/sea-farm/` (ซอร์สอยู่ที่ `sea-farm/`) | ทีมของเรา ดัดแปลงจาก Lofi Valley Engine ของ Leo Castellanos |
+| 4 | **Abyssal Garden** | `games/abyssal-garden/` | Maksymilian Dendura (Noniv) — https://github.com/Noniv/abyssal-garden |
+| 5 | **FEED-FISH** | `games/feed-fish/` | Vishnu Pradeep — https://github.com/pradeep-vishnu/The-Game-Name-is-FEED-FISH |
 
-สามเกมหลังเป็นเกมของคนอื่นที่ใช้ **MIT License** ซึ่งอนุญาตให้นำมาใช้ได้ โดยต้องเก็บไฟล์ `LICENSE` ในโฟลเดอร์ของแต่ละเกมไว้ ห้ามลบ
+เกมที่ดัดแปลงหรือนำมาจากคนอื่นใช้ **MIT License** ซึ่งอนุญาตให้นำมาใช้ได้ โดยต้องเก็บไฟล์ `LICENSE` ในโฟลเดอร์ของแต่ละเกมไว้ ห้ามลบ
 
 ## เว็บออนไลน์
 
@@ -61,6 +62,8 @@ git push
 
 ### ข้อตกลงร่วมกัน
 
+- **id ของเกมห้ามซ้ำ** ก่อนเพิ่มเกม `git pull` แล้วดูเลขล่าสุดในตารางเกมด้านบน ใช้เลขถัดไป และเพิ่มแถวในตารางนี้ด้วย
+  (คะแนนดาวและ Library ใน Supabase ผูกกับเลข id ถ้าซ้ำ คะแนนของสองเกมจะปนกัน)
 - แบ่งกันแก้คนละไฟล์ ถ้าแก้ไฟล์เดียวกันพร้อมกันจะชนกัน (โดยเฉพาะ `js/games-data.js` ให้บอกกันก่อนแก้)
 - ไฟล์ละห้ามเกิน 100 MB และทั้ง repo รวมกันไม่ควรเกิน 1 GB
 - เกม Unity ที่ใหญ่ ให้แยกไปไว้ repo ของตัวเอง หรือขึ้น itch.io แล้วใส่ลิงก์ใน `js/games-data.js`
@@ -69,9 +72,26 @@ git push
 
 ## วิธีเปิดในเครื่อง
 
-- ใน VS Code คลิกขวาที่ `index.html` → **Open with Live Server** (แนะนำ)
-- ดับเบิลคลิก `index.html` ก็เปิดหน้ารวมเกมได้ แต่ **จะเข้าเล่นเกม Unity ไม่ได้**
-  เพราะเบราว์เซอร์ไม่ยอมให้หน้าที่เปิดจากไฟล์ในเครื่อง (`file://`) โหลดไฟล์เกมขนาดใหญ่ ต้องเปิดผ่านเว็บเซิร์ฟเวอร์อย่าง Live Server
+เปิด Terminal ในโฟลเดอร์ `ssyba` แล้วรัน `npm start` ด้วย Node.js 22.12 ขึ้นไป
+เข้า [หน้าเลือกเกม](http://localhost:4173/) หรือ [Sea Farm](http://localhost:4173/games/sea-farm/) ในเบราว์เซอร์
+ตัวเกมที่ build แล้วอยู่ใน `games/sea-farm/` จึงเปิดเล่นได้โดยไม่ต้องติดตั้งแพ็กเกจเพิ่ม
+กด Ctrl+C ใน Terminal เมื่อต้องการปิดเซิร์ฟเวอร์
+
+## แก้ไข Sea Farm
+
+ซอร์สเกมอยู่ที่ `sea-farm/` เมื่อต้องการแก้ไขและสร้างไฟล์เว็บใหม่ ให้รันจากโฟลเดอร์ `ssyba`
+
+```sh
+npm --prefix sea-farm ci
+npm --prefix sea-farm run build
+```
+
+เปิดเกมจากหน้า SSyba เพื่อให้เกมใช้เซสชันบัญชีเดียวกับเว็บ บนเครื่องให้ใช้ชื่อโฮสต์และพอร์ตเดียวกันทุกหน้า
+ผู้เล่นบันทึกสวนและแผนที่ลงเครื่องได้ เมื่อล็อกอินแล้วจะเลือกบันทึกหรือโหลดจาก Supabase เพื่อเล่นต่อบนเครื่องอื่นได้
+เจ้าของโปรเจกต์ Supabase ที่มีตารางของเว็บอยู่แล้วให้รัน `supabase/sea-farm.sql` หนึ่งครั้งใน SQL Editor เพื่อเปิดใช้ตารางเซฟ
+หากตั้งฐานข้อมูลใหม่ ให้รัน `supabase/schema.sql` ก่อนแล้วตามด้วย `supabase/sea-farm.sql`
+
+Sea Farm ดัดแปลงจาก [Lofi Valley Engine ของ Leo Castellanos](https://github.com/Leoocast/lofi-valley-engine/tree/b7c4e62ffece0d19661fad236ce2f0e463004ac4) ภายใต้ [MIT License](sea-farm/LICENSE)
 
 ## ฐานข้อมูล (Supabase)
 

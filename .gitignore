@@ -5,3 +5,6 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# แพ็กเกจ npm (ติดตั้งใหม่ได้ด้วย npm ci ไม่ต้องเก็บใน git)
+node_modules/

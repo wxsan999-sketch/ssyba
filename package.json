@@ -1,0 +1,7 @@
+{
+  "name": "sea-farm-portal",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/serve.mjs"
+  }
+}
