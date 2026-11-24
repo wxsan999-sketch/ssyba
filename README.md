@@ -4,8 +4,16 @@
 สมัครสมาชิก / เข้าสู่ระบบ แล้วเก็บเกมที่ชอบลง **Library** และ **ให้ดาว** เกมได้
 เพิ่มเกมได้ที่ `js/games-data.js` (มีตัวอย่างให้คัดลอกในไฟล์)
 
-ตอนนี้มีเกม 1 เกม: **Submarine vs Fish** (เกม Unity ที่ build เป็นเว็บ) อยู่ในโฟลเดอร์ `games/submarine-vs-fish/`
-กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น
+ตอนนี้มีเกม 4 เกม อยู่ในโฟลเดอร์ `games/` กดที่ปกเกมหรือปุ่ม **▶ เล่นเลย** เพื่อเข้าไปเล่น
+
+| เกม | โฟลเดอร์ | ผู้สร้าง / ที่มา |
+|---|---|---|
+| **Submarine vs Fish** (เกม Unity ที่ build เป็นเว็บ) | `games/submarine-vs-fish/` | ทีมของเรา |
+| **Fishaviour** | `games/fishaviour/` | Blue-Phoenix82 — https://github.com/Blue-Phoenix82/fishaviour |
+| **Abyssal Garden** | `games/abyssal-garden/` | Maksymilian Dendura (Noniv) — https://github.com/Noniv/abyssal-garden |
+| **FEED-FISH** | `games/feed-fish/` | Vishnu Pradeep — https://github.com/pradeep-vishnu/The-Game-Name-is-FEED-FISH |
+
+สามเกมหลังเป็นเกมของคนอื่นที่ใช้ **MIT License** ซึ่งอนุญาตให้นำมาใช้ได้ โดยต้องเก็บไฟล์ `LICENSE` ในโฟลเดอร์ของแต่ละเกมไว้ ห้ามลบ
 
 ## เว็บออนไลน์
 
@@ -132,6 +140,7 @@ build ใหม่ใน Unity (เมนู **Build > Web Build**) แล้ว
 | `js/login.js` | โค้ดของหน้าเข้าสู่ระบบ |
 | `js/register.js` | โค้ดของหน้าสมัครสมาชิก |
 | `games/submarine-vs-fish/` | ตัวเกม Submarine vs Fish (ไฟล์จาก Unity อย่าแก้ด้วยมือ) |
+| `games/fishaviour/`, `games/abyssal-garden/`, `games/feed-fish/` | เกมจาก GitHub (MIT) ก๊อปมาทั้งชุด มี `LICENSE` ของเจ้าของอยู่ข้างใน |
 | `.nojekyll` | บอก GitHub Pages ให้ส่งไฟล์ตามที่เป็น ไม่ต้องแปลงด้วย Jekyll |
 | `.gitattributes` | บอก git ว่าไฟล์เกม Unity เป็น binary ห้ามแปลงบรรทัด |
 

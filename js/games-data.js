@@ -51,5 +51,44 @@ const GAMES = [
     color1: "#38bdf8",
     color2: "#0b2545",
     url: "games/submarine-vs-fish/index.html"   // เกมที่ build จาก Unity (WebGL)
+  },
+
+  /* ---- เกมจากคนอื่นบน GitHub (MIT License: นำมาใช้ได้ แต่ต้องเก็บไฟล์ LICENSE ในโฟลเดอร์เกมไว้) ---- */
+
+  {
+    id: 2,
+    title: "Fishaviour",
+    description: "เกม 3D คุณคือปลาที่ต้องว่ายชนเพื่อน ๆ ให้หลุดจากเหยื่อของนักตกปลา 3 คนภายใน 60 วินาที ยิ่งโดนจับน้อยยิ่งดี (W A S D ว่าย, Shift เร่ง)",
+    author: "Blue-Phoenix82",
+    price: 0,
+    genre: "Arcade 3D",
+    icon: "🐠",
+    color1: "#5eead4",
+    color2: "#134e4a",
+    url: "games/fishaviour/index.html"   // ที่มา: github.com/Blue-Phoenix82/fishaviour
+  },
+  {
+    id: 3,
+    title: "Abyssal Garden",
+    description: "ว่ายสำรวจโลกใต้ทะเล 3D มีป่าสาหร่าย เรือจม และกระเบนราหู ทั้งโลกสร้างจากโค้ดในไฟล์เดียว (ต้องเปิดด้วย Chrome หรือ Edge บนคอมพิวเตอร์)",
+    author: "Maksymilian Dendura (Noniv)",
+    price: 0,
+    genre: "Exploration 3D",
+    icon: "🐋",
+    color1: "#22d3ee",
+    color2: "#1e1b4b",
+    url: "games/abyssal-garden/index.html"   // ที่มา: github.com/Noniv/abyssal-garden
+  },
+  {
+    id: 4,
+    title: "FEED-FISH",
+    description: "บังคับปลาดุกกระโดดขึ้นจากน้ำจับแมลงทอง หลบฉลามด้านล่างและแร้งด้านบน กดปุ่มอะไรก็ได้ คลิก หรือแตะจอเพื่อว่ายขึ้น",
+    author: "Vishnu Pradeep",
+    price: 0,
+    genre: "Arcade · เล่นบนมือถือได้",
+    icon: "🐡",
+    color1: "#fbbf24",
+    color2: "#0e7490",
+    url: "games/feed-fish/index.html"   // ที่มา: github.com/pradeep-vishnu/The-Game-Name-is-FEED-FISH
   }
 ];

@@ -167,7 +167,10 @@ create table if not exists public.games (
 
 -- เกมที่มีอยู่ตอนนี้ (มีอยู่แล้ว → อัปเดตชื่อให้ตรง)
 insert into public.games (id, title) values
-  (1, 'Submarine vs Fish')
+  (1, 'Submarine vs Fish'),
+  (2, 'Fishaviour'),
+  (3, 'Abyssal Garden'),
+  (4, 'FEED-FISH')
 on conflict (id) do update set title = excluded.title;
 
 -- ทุกคนดูรายชื่อเกมได้ แต่แก้ผ่านหน้าเว็บไม่ได้ (แก้ได้ใน Dashboard เท่านั้น)
