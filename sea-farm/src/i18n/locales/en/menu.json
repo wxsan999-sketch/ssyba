@@ -1,14 +1,14 @@
 {
   "title": "Sea Farm",
-  "subtitle": "Tend your sea garden and shape the reef around it.",
+  "subtitle": "Tend the reef, sell your harvest and invest your shells in the next crop.",
   "cards": {
     "designer": {
       "title": "Reef Designer",
-      "description": "Sculpt the seabed and place reef life."
+      "description": "A sandbox for building and decorating your own reef."
     },
     "crops": {
-      "title": "Sea Garden",
-      "description": "Grow and harvest 28 marine cultures."
+      "title": "Play Sea Garden",
+      "description": "Buy cultures, tend your beds and sell harvests at the Reef Market."
     },
     "game": {
       "title": "Open ocean",

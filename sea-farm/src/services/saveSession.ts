@@ -9,9 +9,10 @@ const { url, key } = globalThis.SSYBA_SUPABASE
 // The portal and the game share the SDK's default auth storage on this origin.
 export const saveClient = createClient(url, key)
 let userId: string | null = null
+let changingPlayer = false
 
 export function saveOwner() {
-  return userId
+  return changingPlayer ? null : userId
 }
 
 export function deviceKey(name: string) {
@@ -24,6 +25,9 @@ export function initializeSaveSession(): Promise<void> {
     saveClient.auth.onAuthStateChange((_event, session) => {
       const nextUser = session?.user.id ?? null
       if (initialized && userId !== nextUser) {
+        // Unload handlers may run after the SDK switches tokens. Suppress cloud writes
+        // while still flushing local progress to the previous user's device key.
+        changingPlayer = true
         // The simulation, open forms and cached layouts all belong to the old player.
         // Start the new session with clean stores, including when another tab signs out.
         window.location.reload()

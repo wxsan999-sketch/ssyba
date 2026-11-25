@@ -57,7 +57,7 @@ export function handleToolUse(params: ToolUseParams): void {
     const seedId = activeItem.id
     const cropId = activeItem.relatedCropId
 
-    if (!cropId) {
+    if (!cropId || !inventoryActions.hasItem(seedId, 1)) {
       return
     }
 

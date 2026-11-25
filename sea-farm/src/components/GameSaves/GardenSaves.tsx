@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { captureGarden, loadDeviceGarden, restoreGarden, saveDeviceGarden } from "@/services/gardenStorage"
+import { useStore } from "zustand"
+import { captureGarden, gardenResumeStatus, loadDeviceGarden, restoreGarden, saveDeviceGarden } from "@/services/gardenStorage"
 import { CloudSaveList } from "./CloudSaveList"
 
 export function GardenSaves() {
   const { t } = useTranslation("saves")
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState("")
+  const resumeStatus = useStore(gardenResumeStatus)
 
   function deviceAction(save: boolean) {
     try {
@@ -20,6 +22,7 @@ export function GardenSaves() {
     {open && <div className="sea-save-panel">
       <section className="sea-save-section" aria-label={t("device")}>
         <h3>{t("device")}</h3>
+        <p>{t(resumeStatus)}</p>
         <div className="sea-save-actions">
           <button type="button" onClick={() => deviceAction(true)}>{t("save")}</button>
           <button type="button" onClick={() => deviceAction(false)}>{t("load")}</button>

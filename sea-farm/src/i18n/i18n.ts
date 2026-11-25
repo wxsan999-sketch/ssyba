@@ -22,6 +22,12 @@ import thReefObjects from "./locales/th/reefObjects.json"
 import enSaves from "./locales/en/saves.json"
 import esSaves from "./locales/es/saves.json"
 import thSaves from "./locales/th/saves.json"
+import enLeaderboard from "./locales/en/leaderboard.json"
+import esLeaderboard from "./locales/es/leaderboard.json"
+import thLeaderboard from "./locales/th/leaderboard.json"
+import enMarket from "./locales/en/market.json"
+import esMarket from "./locales/es/market.json"
+import thMarket from "./locales/th/market.json"
 
 const resources = {
   th: {
@@ -32,6 +38,8 @@ const resources = {
     laboratory: thLaboratory,
     menu: thMenu,
     saves: thSaves,
+    leaderboard: thLeaderboard,
+    market: thMarket,
   },
   en: {
     controls: enControls,
@@ -41,6 +49,8 @@ const resources = {
     laboratory: enLaboratory,
     menu: enMenu,
     saves: enSaves,
+    leaderboard: enLeaderboard,
+    market: enMarket,
   },
   es: {
     controls: esControls,
@@ -50,6 +60,8 @@ const resources = {
     laboratory: esLaboratory,
     menu: esMenu,
     saves: esSaves,
+    leaderboard: esLeaderboard,
+    market: esMarket,
   },
 }
 

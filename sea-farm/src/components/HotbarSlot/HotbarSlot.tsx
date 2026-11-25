@@ -34,6 +34,8 @@ export const HotbarSlot = ({
     <Tooltip content={tooltip}>
       <button
         type="button"
+        aria-label={tooltip || shortcut}
+        aria-pressed={isActive}
         onClick={onClick}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}

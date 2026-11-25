@@ -1,6 +1,8 @@
 {
   "cloud": "Partidas en la nube",
   "device": "En este dispositivo",
+  "automatic": "El jardín se reanuda automáticamente en este dispositivo. Guarda un punto de retorno para volver a él más tarde.",
+  "anotherTab": "Otra pestaña tiene un progreso más reciente. Guarda un punto de retorno para conservar este jardín.",
   "signIn": "Inicia sesión en SSyba para usar tu partida en otros dispositivos.",
   "save": "Guardar",
   "load": "Cargar",
