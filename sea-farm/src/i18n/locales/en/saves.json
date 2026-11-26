@@ -1,6 +1,8 @@
 {
   "cloud": "Cloud saves",
   "device": "On this device",
+  "automatic": "Your garden resumes automatically on this device. Save a separate checkpoint here to return to it later.",
+  "anotherTab": "Another tab has newer progress. Save a checkpoint here if you want to keep this garden.",
   "signIn": "Sign in to SSyba to save across devices.",
   "save": "Save",
   "load": "Load",

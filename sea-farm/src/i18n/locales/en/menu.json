@@ -1,14 +1,33 @@
 {
   "title": "Sea Farm",
-  "subtitle": "Tend your sea garden and shape the reef around it.",
+  "player": "Leaderboard name · {{name}}",
+  "auth": {
+    "login": "Sign in to SSyba",
+    "email": "Email",
+    "password": "Password",
+    "register": "Create an SSyba account",
+    "username": "Leaderboard name (3–30 characters)",
+    "publicStats": "The public leaderboard shows your player name, highest balance, sales and play time.",
+    "invalidName": "Enter a player name of 3–30 characters, excluding spaces at the start and end.",
+    "weakPassword": "Choose a stronger password and try again.",
+    "tooManyAttempts": "Too many requests. Wait a moment and try again.",
+    "registerFailed": "We couldn’t create the account. Check your details and try again, or sign in if you already have an account.",
+    "checkEmail": "Confirm your account using the link in your email, then return here to sign in.",
+    "credentials": "Incorrect email or password.",
+    "loginFailed": "Sign-in failed. Check your account and connection, then try again.",
+    "checking": "Checking your SSyba account…",
+    "failed": "We couldn't verify your SSyba account. Check your connection and try again.",
+    "retry": "Try again"
+  },
+  "subtitle": "Tend the reef, sell your harvest and invest your shells in the next crop.",
   "cards": {
     "designer": {
       "title": "Reef Designer",
-      "description": "Sculpt the seabed and place reef life."
+      "description": "A sandbox for building and decorating your own reef."
     },
     "crops": {
-      "title": "Sea Garden",
-      "description": "Grow and harvest 28 marine cultures."
+      "title": "Play Sea Garden",
+      "description": "Buy cultures, tend your beds and sell harvests at the Reef Market."
     },
     "game": {
       "title": "Open ocean",

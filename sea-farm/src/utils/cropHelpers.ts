@@ -104,47 +104,48 @@ export function plantCrop(
  * Harvest a mature crop
  */
 export function harvestCrop(cropEntity: CropEntity): boolean {
-  if (!cropEntity.canHarvest || cropEntity.isDead) return false
+  const liveCrop = worldStore.getState().entities.find(entity => entity.id === cropEntity.id)
+  if (liveCrop?.type !== "crop") return false
+  const crop = liveCrop as CropEntity
+  if (!crop.canHarvest || crop.isDead) return false
 
-  const config = getCropConfig(cropEntity.cropId)
+  const config = getCropConfig(crop.cropId)
   const currentTime = worldStore.getState().gameTime.totalMinutes
 
-  cropEntity.timesHarvested++
-
-  // Add to inventory INSTANTLY
   const dropCount = getDropCount(config)
-  inventoryActions.addItem(config.harvestItem, dropCount)
+  if (!inventoryActions.addItem(config.harvestItem, dropCount)) return false
+  crop.timesHarvested++
 
   // Spawn visual drops
   for (let i = 0; i < dropCount; i++) {
     dropsActions.spawnDrop(
       config.harvestItem,
-      cropEntity.tileX,
-      cropEntity.tileY,
+      crop.tileX,
+      crop.tileY,
     )
   }
 
   if (config.isPerennial) {
     // Perennial crop - reset to stage 0
-    cropEntity.currentStage = 0
-    cropEntity.plantedAt = currentTime
-    cropEntity.lastWateredAt = currentTime
-    cropEntity.totalGrowthMinutes = 0
-    cropEntity.canHarvest = false
-    cropEntity.matureAt = null
+    crop.currentStage = 0
+    crop.plantedAt = currentTime
+    crop.lastWateredAt = currentTime
+    crop.totalGrowthMinutes = 0
+    crop.canHarvest = false
+    crop.matureAt = null
 
     // Check max harvests
     if (
       config.maxHarvests > 0 &&
-      cropEntity.timesHarvested >= config.maxHarvests
+      crop.timesHarvested >= config.maxHarvests
     ) {
-      removeCrop(cropEntity)
+      removeCrop(crop)
     } else {
       worldStore.setState({ entities: [...worldStore.getState().entities] })
     }
   } else {
     // One-time crop
-    removeCrop(cropEntity)
+    removeCrop(crop)
   }
 
   return true

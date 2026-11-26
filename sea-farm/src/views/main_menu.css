@@ -25,6 +25,17 @@
   background: linear-gradient(90deg, #00283ec9, #00283e99 27%, transparent 68%), linear-gradient(0deg, #0027358c, transparent 15%);
 }
 .sea-menu__panel { width: min(410px, 42vw); }
+.sea-menu__player { margin-top: .8rem; color: #ffdf92; font-weight: 600; overflow-wrap: anywhere; }
+.sea-menu__ranking-link { margin-inline-start: 1.3rem; color: #e4fff5; text-decoration: underline; text-underline-offset: 3px; }
+.sea-menu__action { display: inline-block; padding: .6rem 1rem; background: #ffdf92; color: #193b42; border-radius: .45rem; font-weight: 600; }
+.sea-menu__login { display: grid; gap: .8rem; margin-top: 1.2rem; color: #f3fff6; }
+.sea-menu__login h2 { font-size: 1.25rem; font-weight: 600; }
+.sea-menu__login input { display: block; width: 100%; padding: .55rem .7rem; margin-top: .25rem; color: #153b44; background: #f4fff9; border-radius: .4rem; }
+.sea-menu__login a, .sea-menu__switch { text-decoration: underline; text-underline-offset: 3px; text-align: start; }
+.sea-menu__action:focus-visible, .sea-menu__ranking-link:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+.sea-menu.sea-menu--ranking { padding: 1rem; align-items: center; }
+.sea-menu--ranking h1 { display: flex; align-items: center; gap: .6rem; font-size: 1.4rem; font-weight: 700; }
+.sea-menu--ranking .sea-menu__action { margin-top: .5rem; }
 .sea-menu__portal { position: absolute; top: 20px; left: 24px; color: #f3fff6; text-decoration: underline; text-underline-offset: 3px; }
 .sea-menu h1 { margin: 0; }
 .sea-menu h1 img { width: 100%; max-width: 390px; filter: drop-shadow(0 5px 0 #002d3d); }

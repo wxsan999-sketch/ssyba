@@ -1,14 +1,33 @@
 {
   "title": "Sea Farm",
-  "subtitle": "Cultiva tu huerto marino y da forma al arrecife que lo rodea.",
+  "player": "Nombre en la clasificación · {{name}}",
+  "auth": {
+    "login": "Iniciar sesión en SSyba",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "register": "Crear una cuenta de SSyba",
+    "username": "Nombre en la clasificación (3–30 caracteres)",
+    "publicStats": "La clasificación pública muestra tu nombre de jugador, tu saldo máximo, tus ventas y tu tiempo de juego.",
+    "invalidName": "Introduce un nombre de 3 a 30 caracteres, sin contar los espacios al principio y al final.",
+    "weakPassword": "Elige una contraseña más segura y vuelve a intentarlo.",
+    "tooManyAttempts": "Demasiadas solicitudes. Espera un momento y vuelve a intentarlo.",
+    "registerFailed": "No se pudo crear la cuenta. Revisa tus datos y vuelve a intentarlo. Si ya tienes una cuenta, inicia sesión.",
+    "checkEmail": "Confirma tu cuenta con el enlace del correo y vuelve para iniciar sesión.",
+    "credentials": "El correo o la contraseña son incorrectos.",
+    "loginFailed": "No se pudo iniciar sesión. Comprueba tu cuenta y tu conexión y vuelve a intentarlo.",
+    "checking": "Comprobando tu cuenta de SSyba…",
+    "failed": "No se pudo verificar tu cuenta de SSyba. Comprueba tu conexión y vuelve a intentarlo.",
+    "retry": "Volver a intentar"
+  },
+  "subtitle": "Cultiva en el arrecife, vende tu cosecha e invierte las conchas en la próxima siembra.",
   "cards": {
     "designer": {
       "title": "Diseñador de arrecifes",
-      "description": "Modela el fondo y coloca flora y fauna marinas."
+      "description": "Modo libre para diseñar y decorar tu arrecife."
     },
     "crops": {
-      "title": "Huerto marino",
-      "description": "Cultiva y cosecha 28 especies marinas."
+      "title": "Jugar al huerto marino",
+      "description": "Compra cultivos, cuida los bancales y vende la cosecha en el mercado."
     },
     "game": {
       "title": "Mar abierto",

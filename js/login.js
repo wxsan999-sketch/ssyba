@@ -2,24 +2,23 @@
    login.js — โค้ดของหน้าเข้าสู่ระบบ (login.html)
    ===================================================================== */
 
-window.onload = startLoginPage;
+let seaFarmDestination = null;
+document.addEventListener("DOMContentLoaded", startLoginPage);
 
 async function startLoginPage() {
-  await loadAccount(); // เช็คกับ Supabase ว่าล็อกอินอยู่หรือยัง (account.js)
-
-  // ล็อกอินอยู่แล้ว → ไม่ต้องอยู่หน้านี้ กลับหน้าแรกเลย
-  if (getCurrentUser() !== null) {
-    window.location.href = "index.html";
-    return;
-  }
-
-  // ถูกพามาจากปุ่ม "เก็บลง Library" / ให้ดาว / หน้า Library (ลิงก์ลงท้ายด้วย ?need-login)
-  if (window.location.search.includes("need-login")) {
+  seaFarmDestination = prepareSeaFarmAuthPage();
+  if (seaFarmDestination) {
+    document.title = "เข้าสู่ระบบเพื่อเล่น Sea Farm - SSyba";
+    document.querySelector(".auth-title").textContent = "เข้าสู่ระบบเพื่อเล่น Sea Farm";
+    document.getElementById("form-note").textContent =
+      "ใช้บัญชี SSyba ของคุณ ชื่อผู้เล่น เบี้ยสูงสุด ยอดขาย และเวลาเล่นจะแสดงบนกระดานอันดับสาธารณะ";
+  } else if (new URLSearchParams(window.location.search).has("need-login")) {
     document.getElementById("form-note").textContent =
       "เข้าสู่ระบบก่อน เพื่อเก็บเกมลง Library และให้ดาวเกม";
   }
 
   document.getElementById("login-form").addEventListener("submit", handleLogin);
+  if (await hasActiveLogin()) window.location.replace(seaFarmDestination || "index.html");
 }
 
 // ทำงานตอนกดปุ่ม "เข้าสู่ระบบ"
@@ -42,5 +41,5 @@ async function handleLogin(event) {
     errorBox.textContent = error;
     return;
   }
-  window.location.href = "index.html"; // สำเร็จ → ไปหน้าแรก
+  window.location.replace(seaFarmDestination || "index.html");
 }

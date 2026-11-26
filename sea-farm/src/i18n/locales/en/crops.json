@@ -2,7 +2,7 @@
   "welcome": {
     "title": "Sea Garden",
     "version": "Field guide",
-    "introduction": "Rake a bed in the sand, plant a culture, then give it nutrients. When the fronds mature, take your shears and gather your first harvest.",
+    "introduction": "Start with 40 shells and three Sea Lettuce cultures. Rake a seabed tile, choose the culture in slot 6 and tap the bed to plant. Feed it with the nutrient pump, then cut and sell your mature harvest.",
     "farmingTools": "Diving kit",
     "gameMechanics": "Tending the garden",
     "startFarming": "Enter the garden",
@@ -13,7 +13,7 @@
       },
       "seeds": {
         "title": "🧪 Starter cultures",
-        "description": "Choose a culture from your pack and plant it in a prepared bed."
+        "description": "Choose a culture on your hotbar or equip it at the market. Tap a prepared bed to plant."
       },
       "wateringCan": {
         "title": "🫧 Nutrient Pump",
@@ -31,11 +31,11 @@
       },
       "harvest": {
         "title": "Harvest",
-        "description": "Hover over a specimen with the shears to check when it will be ready."
+        "description": "Tap a mature crop with your shears. Open the Reef Market and sell your harvest for shells."
       },
       "timeControl": {
         "title": "Dive clock",
-        "description": "Use the time controls to watch growth at a faster pace."
+        "description": "Use the speed buttons beside the clock to fast-forward growth. Cultures need nutrients to grow."
       },
       "inventory": {
         "title": "Dive pack",

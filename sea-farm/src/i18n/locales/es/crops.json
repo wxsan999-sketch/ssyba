@@ -2,7 +2,7 @@
   "welcome": {
     "title": "Huerto marino",
     "version": "Guía de campo",
-    "introduction": "Rastrilla un lecho de arena, planta un cultivo y dale nutrientes. Cuando madure, recógelo con las tijeras.",
+    "introduction": "Empiezas con 40 conchas y tres cultivos de lechuga de mar. Prepara el lecho con el rastrillo, selecciona el cultivo de la casilla 6 y toca el lecho para plantar. Aplica nutrientes y corta la cosecha madura para venderla.",
     "farmingTools": "Equipo de buceo",
     "gameMechanics": "Cuidados del huerto",
     "startFarming": "Entrar al huerto",
@@ -13,7 +13,7 @@
       },
       "seeds": {
         "title": "🧪 Cultivos iniciales",
-        "description": "Elige un cultivo de la mochila y siémbralo en un lecho preparado."
+        "description": "Elige un cultivo de la barra o equípalo en el mercado. Toca un bancal preparado para plantar."
       },
       "wateringCan": {
         "title": "🫧 Bomba de nutrientes",
@@ -31,11 +31,11 @@
       },
       "harvest": {
         "title": "Cosecha",
-        "description": "Pasa las tijeras sobre un ejemplar para ver cuánto le falta para madurar."
+        "description": "Toca un cultivo maduro con las tijeras. Abre el mercado del arrecife y vende la cosecha por conchas."
       },
       "timeControl": {
         "title": "Reloj de inmersión",
-        "description": "Acelera el reloj para observar el crecimiento en menos tiempo."
+        "description": "Usa los botones junto al reloj para acelerar el crecimiento. Los cultivos crecen cuando tienen nutrientes."
       },
       "inventory": {
         "title": "Mochila de buceo",

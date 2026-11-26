@@ -19,6 +19,7 @@ import { inventoryActions } from "@/engine/inventoryStore"
 import { getItemSpriteStyle } from "@/engine/rendering/cropRenderer"
 import { worldActions } from "@/engine/store"
 import { GardenSaves } from "@/components/GameSaves/GardenSaves"
+import { ReefMarket } from "@/components/ReefMarket/ReefMarket"
 import { initializeGarden } from "@/services/gardenStorage"
 import { useCropsGroundTilesStore } from "./stores/cropsGroundTilesStore"
 
@@ -222,7 +223,8 @@ export const CropsFarmView = (): ReactElement => {
   // ======================================================
   function handleToolClick(e: React.MouseEvent) {
     if (e.button !== 0) return // Solo click izquierdo
-    if (!mouseTile) return
+    const targetTile = viewport.getTileFromMouseEvent(e)
+    if (!targetTile) return
 
     // Extraer item y cantidad del slot activo
     const itemDef = activeSlot?.itemId
@@ -234,7 +236,7 @@ export const CropsFarmView = (): ReactElement => {
       : 0
 
     handleToolUse({
-      mouseTile,
+      mouseTile: targetTile,
       activeTool,
       activeItem: itemDef ?? null,
       activeItemQuantity: itemQuantity,
@@ -296,7 +298,7 @@ export const CropsFarmView = (): ReactElement => {
   // RENDER
   // ======================================================
   return (
-    <div className="flex h-screen w-full flex-col select-none overflow-hidden bg-black text-white">
+    <div className="sea-garden flex h-screen w-full flex-col select-none overflow-hidden bg-black text-white">
       {/* VIEWPORT CONTAINER - Ocupa todo el espacio disponible */}
       <div className="relative flex-1 overflow-hidden">
         <div
@@ -388,8 +390,9 @@ export const CropsFarmView = (): ReactElement => {
       </div>
 
       {/* CURRENT HOTBAR - Dinámica (Q para cambiar) */}
-      <CurrentHotbar />
+      <div className="sea-garden__tools"><CurrentHotbar /></div>
       <GardenSaves />
+      <ReefMarket />
 
       {/* DECORATION MENU POPUP */}
       <DecorationMenu />
