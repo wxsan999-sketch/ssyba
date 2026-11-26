@@ -80,13 +80,16 @@ grant execute on function public.report_sea_farm_score(bigint,bigint,bigint,bigi
 create or replace function public.sea_farm_leaderboard(p_order text default 'balance')
 returns table (place bigint, player_name text, best_balance bigint, total_sales bigint, played_seconds bigint, is_me boolean)
 language sql stable security definer set search_path = '' as $$
-  select rank() over (order by score.metric desc), coalesce(nullif(p.username, ''), 'Diver'),
+  select rank() over ranking as place, coalesce(nullif(p.username, ''), 'Diver'),
          s.best_balance, s.total_sales, s.played_seconds, s.user_id is not distinct from (select auth.uid())
   from public.sea_farm_scores s
   left join public.profiles p on p.id = s.user_id
-  cross join lateral (select case p_order when 'time' then s.played_seconds
-                         when 'sales' then s.total_sales else s.best_balance end as metric) score
-  order by score.metric desc, s.user_id
+  window ranking as (order by
+    case when p_order = 'time' then s.played_seconds end asc,
+    case when p_order = 'sales' then s.total_sales else s.best_balance end desc,
+    case when coalesce(p_order, 'balance') not in ('time', 'sales') then s.played_seconds end asc
+  )
+  order by place, s.user_id
   limit 50;
 $$;
 revoke all on function public.sea_farm_leaderboard(text) from public;

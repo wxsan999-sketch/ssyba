@@ -19,6 +19,6 @@
   "minutes": "min",
   "seconds": "s",
   "sort": "Ordenar por",
-  "note": "Los primeros 50. El tiempo cuenta mientras la granja está visible y sin pausa.",
+  "note": "Los 50 primeros. El saldo máximo se ordena de mayor a menor. En caso de empate gana el menor tiempo de juego. La pestaña de tiempo muestra primero los tiempos más cortos.",
   "sync": "Tus estadísticas están pendientes de sincronizar."
 }

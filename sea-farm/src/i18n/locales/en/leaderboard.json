@@ -19,6 +19,6 @@
   "minutes": "m",
   "seconds": "s",
   "sort": "Rank by",
-  "note": "Top 50 farmers. Playtime counts while the farm is visible and running.",
+  "note": "Top 50 farmers. Higher peak balances rank first, with shorter playtime breaking ties. The playtime tab lists the shortest times first.",
   "sync": "Your latest stats are waiting to sync."
 }

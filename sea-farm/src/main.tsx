@@ -7,11 +7,9 @@ import ReactDOM from "react-dom/client"
 // i18n initialization
 import "@/i18n"
 
-import { gameLoop } from "./engine/GameLoop"
 import "./index.css"
 import { RootLayout } from "./routes/__root"
 import { Routes } from "./routes/routes"
-import { initializeSaveSession } from "./services/saveSession"
 
 const routeTree = RootLayout.addChildren(Routes)
 
@@ -37,17 +35,11 @@ document.addEventListener("keyup", (e) => {
   }
 })
 
-// Iniciar el GameLoop
-gameLoop.start()
-
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById("app")!
 
-initializeSaveSession().then(() => {
-  const root = ReactDOM.createRoot(rootElement)
-  root.render(
-    <StrictMode>
-      <RouterProvider router={router} />
-    </StrictMode>,
-  )
-})
+ReactDOM.createRoot(rootElement).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+)

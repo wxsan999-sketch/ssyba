@@ -4,9 +4,15 @@ import { FarmLaboratory } from "@/views/laboratory/farm/farm_laboratory_view"
 
 import CropsFarmView from "@/views/laboratory/crops/crops_view"
 import MainMenu from "@/views/main_menu"
+import { PublicLeaderboard } from "@/components/Leaderboard/FarmLeaderboard"
 import { RootLayout } from "./__root"
 
 export const Routes = [
+  createRoute({
+    getParentRoute: () => RootLayout,
+    path: "/leaderboard",
+    component: PublicLeaderboard,
+  }),
   createRoute({
     getParentRoute: () => RootLayout,
     path: "/",

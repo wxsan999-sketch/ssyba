@@ -44,3 +44,28 @@ function showUserInHeader() {
 function goToLogin() {
   window.location.href = "login.html?need-login";
 }
+
+// Both account pages use the same fixed destinations, including on GitHub Pages.
+function prepareSeaFarmAuthPage() {
+  const request = new URLSearchParams(window.location.search);
+  if (request.get("game") !== "sea-farm") return null;
+
+  const accountParams = new URLSearchParams({ game: "sea-farm" });
+  const destination = new URL("games/sea-farm/", window.location.href);
+  const mode = request.get("mode");
+  if (mode === "garden" || mode === "reef") {
+    accountParams.set("mode", mode);
+    destination.hash = mode === "garden" ? "/crops_farm" : "/farm_laboratory";
+    const farm = request.get("farm");
+    if (mode === "reef" && farm && /^[A-Za-z0-9+/=]{1,1800}$/.test(farm)) {
+      accountParams.set("farm", farm);
+      destination.searchParams.set("farm", farm);
+    }
+  }
+
+  for (const link of document.querySelectorAll('a[href="login.html"], a[href="register.html"]')) {
+    link.search = accountParams.toString();
+  }
+  document.getElementById("sea-farm-rankings").hidden = false;
+  return destination.href;
+}

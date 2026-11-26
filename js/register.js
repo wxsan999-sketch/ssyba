@@ -2,18 +2,20 @@
    register.js — โค้ดของหน้าสมัครสมาชิก (register.html)
    ===================================================================== */
 
-window.onload = startRegisterPage;
+let seaFarmDestination = null;
+document.addEventListener("DOMContentLoaded", startRegisterPage);
 
 async function startRegisterPage() {
-  await loadAccount(); // เช็คกับ Supabase ว่าล็อกอินอยู่หรือยัง (account.js)
-
-  // ล็อกอินอยู่แล้ว → ไม่ต้องสมัครใหม่ กลับหน้าแรกเลย
-  if (getCurrentUser() !== null) {
-    window.location.href = "index.html";
-    return;
+  seaFarmDestination = prepareSeaFarmAuthPage();
+  if (seaFarmDestination) {
+    document.title = "สมัครสมาชิกเพื่อเล่น Sea Farm - SSyba";
+    document.querySelector(".auth-title").textContent = "สมัครสมาชิกเพื่อเล่น Sea Farm";
+    document.getElementById("form-note").textContent =
+      "เลือกชื่อผู้เล่นสำหรับกระดานอันดับ Sea Farm ผู้เล่นคนอื่นจะเห็นชื่อนี้พร้อมเบี้ยสูงสุด ยอดขาย และเวลาเล่นของคุณ";
   }
 
   document.getElementById("register-form").addEventListener("submit", handleRegister);
+  if (await hasActiveLogin()) window.location.replace(seaFarmDestination || "index.html");
 }
 
 // ทำงานตอนกดปุ่ม "สมัครสมาชิก"
@@ -38,7 +40,8 @@ async function handleRegister(event) {
   submitButton.disabled = true; // กันกดซ้ำระหว่างรอ Supabase ตอบกลับ
 
   // registerUser อยู่ใน account.js: สำเร็จได้ null, ไม่สำเร็จได้ข้อความบอกสาเหตุ
-  const error = await registerUser(username, email, password);
+  const emailRedirectTo = seaFarmDestination ? document.getElementById("login-link").href : undefined;
+  const error = await registerUser(username, email, password, emailRedirectTo);
   submitButton.disabled = false;
 
   if (error !== null) {
@@ -53,5 +56,5 @@ async function handleRegister(event) {
     return;
   }
 
-  window.location.href = "index.html"; // สมัครและล็อกอินแล้ว → ไปหน้าแรก
+  window.location.replace(seaFarmDestination || "index.html");
 }

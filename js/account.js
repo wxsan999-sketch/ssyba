@@ -24,13 +24,13 @@
 // supabase.createClient มาจากไฟล์ supabase-js ที่โหลดจาก CDN ในหัว HTML
 // ถ้ายังไม่ได้ใส่ key ใน supabase-config.js → db = null (เว็บยังเปิดดูเกมได้ แต่ล็อกอินไม่ได้)
 let db = null;
-if (SUPABASE_KEY.startsWith("sb_publishable_") || SUPABASE_KEY.startsWith("eyJ")) {
+if (globalThis.supabase && (SUPABASE_KEY.startsWith("sb_publishable_") || SUPABASE_KEY.startsWith("eyJ"))) {
   db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 } else {
-  console.warn("ยังไม่ได้ใส่ Publishable key ใน js/supabase-config.js");
+  console.warn("ระบบบัญชี SSyba ยังไม่พร้อมใช้งาน");
 }
 
-const NOT_READY_MESSAGE = "ยังเชื่อมต่อฐานข้อมูลไม่ได้ (ยังไม่ได้ใส่ key ใน js/supabase-config.js)";
+const NOT_READY_MESSAGE = "ยังเชื่อมต่อระบบบัญชีไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วรีเฟรชหน้า";
 
 
 /* ---------- ข้อมูลที่ดึงมาจากฐานข้อมูลตอนเปิดหน้า ---------- */
@@ -119,10 +119,23 @@ function getCurrentUser() {
   return currentUser;
 }
 
+// Verify the cached login before redirecting back to a game that requires an account.
+async function hasActiveLogin() {
+  if (!db) return false;
+  try {
+    const { data: { session }, error: sessionError } = await db.auth.getSession();
+    if (sessionError || !session?.user?.id) return false;
+    const { data: { user }, error } = await db.auth.getUser();
+    return Boolean(!error && user && !user.is_anonymous && user.id === session.user.id);
+  } catch {
+    return false;
+  }
+}
+
 // สมัครสมาชิก: สำเร็จ → null,  ไม่สำเร็จ → ข้อความบอกสาเหตุ
 // ถ้าใน Supabase เปิด "Confirm email" ไว้ สมัครเสร็จจะยังไม่ล็อกอิน (getCurrentUser() ยังเป็น null)
 // จนกว่าผู้ใช้จะกดลิงก์ยืนยันในอีเมล
-async function registerUser(username, email, password) {
+async function registerUser(username, email, password, emailRedirectTo) {
   if (db === null) {
     return NOT_READY_MESSAGE;
   }
@@ -140,7 +153,7 @@ async function registerUser(username, email, password) {
   const result = await db.auth.signUp({
     email: email,
     password: password,
-    options: { data: { username: username } } // เก็บชื่อผู้ใช้ไว้กับบัญชี
+    options: { data: { username: username }, emailRedirectTo }
   });
 
   if (result.error) {
